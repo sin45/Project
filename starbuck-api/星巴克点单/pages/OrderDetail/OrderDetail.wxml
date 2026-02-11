@@ -1,0 +1,71 @@
+<view class="order-status-container">
+  <!-- 订单状态标签 -->
+  <view class="status-tag">{{orderStatus}}</view>
+  <!-- 门店信息 -->
+  <view class="order-info-container">
+    <view class="store-info">
+      <text class="store-name">星巴克门店</text>
+    </view>
+  </view>
+  <view class="store-address">门店地址信息</view>
+</view>
+
+<!-- 订单明细列表 -->
+<view class="container-order">
+  <view class="order-title">订单明细</view>
+  
+  <!-- 动态显示订单明细 -->
+  <view class="order-item" wx:for="{{orderDetails}}" wx:key="detailId">
+    <view class="order-item-header">
+      <image class="item-image" src="{{item.productImage}}" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-name">{{item.productName}}</text> 
+        <view class="item-details">
+          <text class="detail" wx:if="{{item.customization}}">{{item.customization}}</text>
+        </view>
+      </view>
+      <view class="item-quantity">x{{item.quantity}}</view>
+      <view class="item-price">¥{{item.unit_price_fmt}}</view>
+    </view>
+    <view class="item-total">
+      <text class="total-label">小计</text>
+      <text class="total-price">¥{{item.subtotal_fmt}}</text>
+    </view>
+  </view>
+
+  <!-- 订单总计 -->
+  <view class="order-summary">
+    <text class="summary-label">总计</text>
+    <text class="summary-price">¥{{totalAmount}}</text>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="order-info">
+    <view class="info-item">
+      <text class="info-label">订单编号</text>
+      <text class="info-value">{{orderId}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">商品数量</text>
+      <text class="info-value">{{totalItems}}件</text>
+    </view>
+  </view>
+</view>
+
+<!-- 调试信息（开发时使用，生产环境可删除）
+<view class="debug-info" wx:if="{{debugJson}}">
+  <text class="debug-title">调试信息：</text>
+  <text class="debug-content">{{debugJson}}</text>
+</view> -->
+
+<!-- 联系按钮 -->
+<button class="contact-button" bindtap="contactStore">
+  <text class="contact-text">联系门店</text>
+</button>
+
+<!-- 客服图标 -->
+<view class="fixed-circle">
+  <view class="circle-top" bind:tap="contactService">
+    <image class="icon-image" src="/pages/images/联系客服.jpg"></image>
+  </view>
+</view>

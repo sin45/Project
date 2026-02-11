@@ -1,0 +1,105 @@
+<!-- 顶部导航栏 -->
+<view class="nav-tabs">
+  <block wx:for="{{tabs}}" wx:key="id">
+    <view 
+      class="tab {{activeTab === item.id ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-id="{{item.id}}"
+    >
+      {{item.name}}
+    </view>
+  </block>
+</view>
+
+<!-- 二级导航标签 (仅其他标签显示) -->
+<view class="sub-nav-tabs" wx:if="{{activeTab === 'other'}}">
+  <block wx:for="{{subTabs}}" wx:key="id">
+    <view 
+      class="sub-tab {{activeSubTab === item.id ? 'active' : ''}}" 
+      bindtap="switchSubTab" 
+      data-id="{{item.id}}"
+    >
+      {{item.name}}
+    </view>
+  </block>
+</view>
+
+<!-- 内容区域 -->
+<view class="content">
+  <block wx:if="{{hasOrder}}">
+    <!-- 有订单时的列表 -->
+    <view class="order-list">
+      <block wx:for="{{orderList}}" wx:key="orderId">
+        <view class="order-card" bindtap="handleBannerClick" data-order-id="{{item.orderId}}">
+          <!-- 订单头部 -->
+          <view class="order-header">
+            <view class="order-type-status">
+              <text class="order-type">
+                <block wx:if="{{item.orderType === 'QUICK'}}">啡快</block>
+                <block wx:elif="{{item.orderType === 'DELIVERY'}}">专星送</block>
+                <block wx:else>门店</block>
+              </text>
+              <text class="order-status">
+                <block wx:if="{{item.orderStatus === 'CREATED'}}">待支付</block>
+                <block wx:elif="{{item.orderStatus === 'PAID'}}">已支付</block>
+                <block wx:elif="{{item.orderStatus === 'PREPARING'}}">制作中</block>
+                <block wx:elif="{{item.orderStatus === 'COMPLETED'}}">已完成</block>
+                <block wx:elif="{{item.orderStatus === 'CANCELLED'}}">已取消</block>
+              </text>
+            </view>
+            <view class="order-meta">
+              <text class="shop">门店 #{{item.storeId}}</text>
+              <text class="order-time">取餐时间: {{item.pickupTime}}</text>
+            </view>
+          </view>
+          
+          <!-- 商品明细 -->
+          <block wx:for="{{item.orderDetails}}" wx:key="detailId" wx:for-item="detail">
+            <view class="order-details">
+              <image src="{{detail.productImage || '/pages/images/default.jpg'}}" class="item-img" mode="aspectFill"/>
+              <view class="item-info">
+                <text class="item-name">{{detail.productName}}</text>
+                <text class="item-spec">标准规格</text>
+              </view>
+              <view class="item-meta">
+                <text class="item-price">¥{{detail.unitPriceStr}}</text>
+                <text class="item-count">x{{detail.quantity}}</text>
+              </view>
+            </view>
+          </block>
+          
+          <view class="order-footer">
+            <text class="total-amount">总价: ¥{{item.totalAmountStr}}</text>
+            <button class="order-again-btn" bindtap="reorder" data-id="{{item.orderId}}">
+              再来一单
+            </button>
+          </view>
+        </view>
+      </block>
+      <view class="no-more">没有更多订单了~</view>
+    </view>
+  </block>
+  
+  <block wx:else>
+    <!-- 无订单时的显示 -->
+    <view class="no-order">
+      <view class="no-order-icon">
+        <image src="/pages/images/暂无订单.png" mode="aspectFit"></image>
+      </view>
+      <text class="no-order-text">暂无历史订单</text>
+      <text class="no-order-tip">
+        <block wx:if="{{activeTab === 'store'}}">
+          该订单开放部分门店敬请期待
+        </block>
+        <block wx:else>
+          您的历史订单将会展示在这里\n以便你快速再来一单
+        </block>
+      </text>
+      
+      <!-- 啡快和专星送标签下显示立即点单按钮 -->
+      <block wx:if="{{activeTab === 'quick' || activeTab === 'delivery'}}">
+        <button class="order-btn" bindtap="goToOrderPage">立即点单</button>
+      </block>
+    </view>
+  </block>
+</view>

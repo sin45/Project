@@ -1,0 +1,114 @@
+/* 个人信息编辑页 */
+.page-profile {
+  min-height: 100vh;
+  background: #fff;
+  padding-bottom: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-list {
+  background: #fff;
+  margin-top: 40rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 32rpx;
+  font-size: 30rpx;
+}
+
+.label {
+  color: #333;
+  flex-shrink: 0;
+  width: 120rpx;
+}
+
+.row-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.row-right.col {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.avatar-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.arrow {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.input {
+  flex: 1;
+  text-align: right;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.placeholder {
+  color: #bbb;
+  font-size: 30rpx;
+}
+
+.value {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.account-value {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.account-tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.row-account .row-right {
+  align-items: flex-end;
+}
+
+.divider {
+  height: 1rpx;
+  background: #eee;
+  margin-left: 32rpx;
+}
+
+.btn-wrap {
+  padding: 48rpx 32rpx 0;
+  margin-bottom: 60rpx;
+}
+
+.btn-save {
+  width: 100%;
+  background-color: #006241;
+  color: #fff;
+  border-radius: 44rpx;
+  border: none;
+}
+
+.btn-save::after {
+  border: none;
+}
+
+/* 有内容时保存按钮高亮（可选） */
+.btn-save.active {
+  background: #333;
+  color: #fff;
+}

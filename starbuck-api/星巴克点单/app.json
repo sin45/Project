@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/ShouYe/ShouYe",
+    "pages/user/user",
+    "pages/DingDan/DingDan",
+    "pages/OrderDetail/OrderDetail",
+    "pages/register/register",
+    "pages/Purchase/Purchase",
+    "pages/product/product",
+    "pages/Checkout/Checkout",
+    "pages/userInfo/userInfo",
+    "pages/addressManage/addressManage",
+    "pages/addressDetail/addressDetail",
+    "pages/addressSelect/addressSelect",
+    "pages/storeActivity/storeActivity",
+    "pages/orderManage/orderManage"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "恰逢咖啡",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#00A862",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/ShouYe/ShouYe",
+        "text": "首页",
+        "iconPath": "/pages/images/首页.jpg",
+        "selectedIconPath": "/pages/images/选中首页.jpg"
+      },
+      {
+        "pagePath": "pages/DingDan/DingDan",
+        "text": "订单",
+        "iconPath": "/pages/images/订单.jpg",
+        "selectedIconPath": "/pages/images/选中订单.jpg"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/pages/images/我的.jpg",
+        "selectedIconPath": "/pages/images/选中我的.jpg"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于地图定位和显示附近服务"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

@@ -1,0 +1,9 @@
+<view class="register-container">
+  <view class="register-title">用户注册</view>
+  <input placeholder="用户名" bindinput="handleInput" data-field="username" value="{{username}}" bindblur="onUsernameBlur"/>
+  <view wx:if="{{usernameAvailable === false}}" style="color:red;font-size:24rpx;">用户名已存在</view>
+  <input type="password" placeholder="密码" bindinput="handleInput" data-field="password" value="{{password}}"/>
+  <input placeholder="手机号" bindinput="handleInput" data-field="userPhone" value="{{userPhone}}" bindblur="onPhoneBlur"/>
+  <view wx:if="{{phoneAvailable === false}}" style="color:red;font-size:24rpx;">手机号已被注册</view>
+  <button bindtap="handleRegister" loading="{{loading}}">提交注册</button>
+</view>

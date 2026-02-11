@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: starbucks
+  datasource:
+    url: jdbc:mysql://localhost:3306/starbucks_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: qwe123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+
+server:
+  port: 8080
+
+wx:
+  miniapp:
+    appid: wx2e9d7a6b13542f37
+    secret: 6bdff789b2d509eafb98121282ffdf9a
+
+logging:
+  level:
+    root: info
+    com.starbucks: debug
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

@@ -1,0 +1,113 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+  box-sizing: border-box;
+}
+
+.register-title {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 70rpx;
+  position: relative;
+  letter-spacing: 2rpx;
+}
+.register-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15rpx;
+  left: 25%;
+  width: 50%;
+  height: 6rpx;
+  border-radius: 3rpx;
+}
+
+input {
+  width: 100%;
+  height: 100rpx;
+  padding: 0 40rpx;
+  margin-bottom: 40rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50rpx;
+  border: 1rpx solid #e0e6ed;
+  font-size: 32rpx;
+  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+input:focus {
+  border-color: #3498db;
+  box-shadow: 0 8rpx 25rpx rgba(52, 152, 219, 0.2);
+  transform: translateY(-4rpx);
+}
+
+input::placeholder {
+  color: #a0aec0;
+  font-weight: 300;
+}
+
+button {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(45deg, #28b12fb2, #35f073);
+  color: white;
+  font-size: 36rpx;
+  font-weight: 500;
+  border-radius: 50rpx;
+  border: none;
+  box-shadow: 0 6rpx 20rpx rgba(46, 204, 113, 0.4);
+  transition: all 0.3s;
+  margin-top: 20rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+button:active {
+  transform: translateY(4rpx);
+  box-shadow: 0 2rpx 8rpx rgba(46, 204, 113, 0.6);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.7s;
+}
+
+button:active::before {
+  top: 50%;
+  left: 50%;
+}
+
+/* 加载状态改造 */
+button[loading] {
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+}
+
+button[loading]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36rpx;
+  height: 36rpx;
+  margin: -18rpx 0 0 -18rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+  border-top: 4rpx solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

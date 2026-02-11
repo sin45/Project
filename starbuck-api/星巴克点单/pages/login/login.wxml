@@ -1,0 +1,12 @@
+<view class="login-container">
+  <!-- 新增标题 -->
+  <view class="login-title">用户登录</view>
+  
+  <input placeholder="用户名" data-field="username" bindinput="handleInput"/>
+  <input type="password" placeholder="密码" data-field="password" bindinput="handleInput"/>
+  
+  <button bindtap="handleLogin" loading="{{loading}}">登录</button>
+  
+  <!-- 新增注册按钮 -->
+  <button class="register-btn" bindtap="navigateToRegister">注册账号</button>
+</view>

@@ -1,0 +1,126 @@
+/* 页面容器样式 */
+.container {
+  background-color: #f8f8f8; /* 设置页面背景为浅灰色 */
+  min-height: 100vh; /* 最小高度为视口高度，确保铺满屏幕 */
+  padding-bottom: 240rpx; /* 底部内边距，为底部导航栏预留空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.member-info {
+  border-radius: 16rpx; /* 圆角 */
+  width:650rpx; /* 固定宽度 */
+  justify-content: space-between; /* 子元素两端对齐 */
+  align-items: center; /* 垂直居中对齐 */
+  padding: 30rpx 20rpx; /* 内边距：上下30rpx，左右20rpx */
+  background-color: #fff; /* 白色背景 */
+  margin-bottom: 10rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.15);
+}
+
+/* 用户信息容器美化 */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 头像样式增强 */
+.user-info image {
+  width: 160rpx !important;
+  height: 160rpx !important;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* 信息文本统一样式 */
+.user-info view {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16rpx;
+  font-size: 30rpx;
+  color: #4a5568;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+}
+
+.nick-name {
+  font-size: 25rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+
+/* 积分 / 余额 / 优惠券 */
+.stats-row {
+  padding: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin: 24rpx 24rpx 0;
+  border-radius: 16rpx;
+  padding: 32rpx 0;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 60rpx;
+  background: #eee;
+}
+
+/* 功能列表 */
+.menu-list {
+  width: 650rpx;
+  margin: 24rpx 24rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.04);
+  padding: 30rpx 20rpx;
+}
+
+.list-item {
+  padding: 30rpx 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-list .arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 2rpx solid #ccc;
+  border-right: 2rpx solid #ccc;
+  transform: rotate(45deg);
+}
+
+/* 页脚版权 */
+.footer {
+  text-align: center; /* 文字居中 */
+  color: rgb(112, 112, 112); 
+  font-size: 24rpx; /* 小号文字 */
+  padding: 40rpx 30rpx 140rpx; /* 上40rpx，左右30rpx，下140rpx（为tabBar留空间） */
+}

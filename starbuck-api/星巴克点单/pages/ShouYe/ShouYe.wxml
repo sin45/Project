@@ -1,0 +1,48 @@
+<!-- index.wxml -->
+  <!-- 顶部轮播图 -->
+  <view class="top-image-view">
+    <image wx:if="{{ifManage}}" src="/pages/images/shouye_top.png" bindtap="showOrderManage" class="top-image" mode="scaleToFill"/>
+    <image wx:else src="/pages/images/shouye_top.png" class="top-image" mode="scaleToFill"/>
+  </view>
+  
+
+<!-- 广告横幅 -->
+<view class="banner-split">
+  <!-- 左侧：啡快 -->
+  <view class="banner-half" catchtap="handleBannerClick" data-type="啡快">
+    <view class="banner-tag">青梅酒回归</view>
+    <view class="banner-main-title">到店取</view>
+    <view class="banner-sub-title">在线点，到店取</view>
+    <view class="banner-img-placeholder"> 
+      <!-- 可替换为image -->
+      <image src="/pages/images/店铺.png" mode="heightFix" />
+    </view>
+  </view>
+  <view class="banner-divider"></view>
+  <!-- 右侧：专星送 -->
+  <view class="banner-half" catchtap="handleBannerClick" data-type="专星送">
+    <view class="banner-tag">满50免运</view>
+    <view class="banner-main-title">外送</view>
+    <view class="banner-sub-title">备注送冰杯</view>
+    <view class="banner-img-placeholder"> 
+      <!-- 可替换为image -->
+      <image src="/pages/images/外送.png" mode="heightFix" />
+    </view>
+  </view>
+</view>
+
+<!-- 功能入口网格 -->
+<view class="grid">
+  <view class="grid-item">
+    <image src="/pages/images/cat1.png" mode="aspectFit"/>
+  </view>
+  <view class="grid-item">
+    <image src="/pages/images/cat2.png" mode="aspectFit"/>
+  </view>
+  <view class="grid-item">
+    <image src="/pages/images/cat3.png" mode="aspectFit"/>
+  </view>
+  <view class="grid-item">
+    <image src="/pages/images/cat4.png" mode="aspectFit"/>
+  </view>
+</view>

@@ -1,0 +1,258 @@
+<!-- pages/ProductDetail/ProductDetail.wxml -->
+<view class="product-detail-container">
+  <!-- 商品轮播图 -->
+  <view class="product-gallery">
+    <swiper>
+      <swiper-item>
+        <image src="{{product.imageUrl}}" mode="aspectFill"/>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 商品基本信息 -->
+  <view class="product-base-info">
+    <view class="product-name-row">
+      <text class="product-name">{{ product.productName }}</text>
+    </view>
+    <view class="product-description-row">
+      <text class="product-description">{{ product.description }}</text>
+    </view>
+  </view>
+
+  <!-- 商品定制选项 -->
+  <view class="customization-row1">
+    <text class="option-title">数量</text>
+    <view class="quantity-control">
+      <view class="quantity-btn decrease-btn" bindtap="decreaseQuantity" data-id="{{product.productId}}">
+        <image src="/pages/images/白色减号.png" class="btn-icon" mode="aspectFit"/>
+      </view>
+      <text class="quantity">{{quantity}}</text>
+      <view class="quantity-btn increase-btn" bindtap="increaseQuantity" data-id="{{product.productId}}">
+        <image src="/pages/images/白色加号.png" class="btn-icon" mode="aspectFit"/>
+      </view>
+    </view>
+  </view>
+
+
+    <!-- 杯型选择 -->
+    <view class="customization-row">
+      <text class="option-title">杯型</text>
+      <view class="size-options">
+        <view 
+          class="size-option {{selectedSize === 'medium' ? 'selected' : ''}}" 
+          bindtap="selectSize" 
+          data-size="medium"
+        >
+          <view class="size-icon">
+            <image src="/pages/images/中杯.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="size-info">
+            <text class="size-name">中杯</text>
+            <text class="size-volume">355ml</text>
+          </view>
+        </view>
+        
+        <view 
+          class="size-option {{selectedSize === 'large' ? 'selected' : ''}}" 
+          bindtap="selectSize" 
+          data-size="large"
+        >
+          <view class="size-icon">
+            <image src="/pages/images/大杯.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="size-info">
+            <text class="size-name selected-text">大杯</text>
+            <text class="size-volume">473ml</text>
+          </view>
+        </view>
+        
+        <view 
+          class="size-option {{selectedSize === 'xlarge' ? 'selected' : ''}}" 
+          bindtap="selectSize" 
+          data-size="xlarge"
+        >
+          <view class="size-icon">
+            <image src="/pages/images/超大杯.jpg" mode="aspectFill"></image>
+          </view>
+          <view class="size-info">
+            <text class="size-name">超大杯</text>
+            <text class="size-volume">592ml</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 温度选择 -->
+    <view class="customization-row">
+      <text class="option-title">温度</text>
+      <view class="temperature-options">
+        <view 
+          class="temperature-option {{selectedTemp === 'hot' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="hot"
+        >
+          热
+        </view>
+        <view 
+          class="temperature-option {{selectedTemp === 'warm' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="warm"
+        >
+          微热
+        </view>
+        <view 
+          class="temperature-option {{selectedTemp === 'ice' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="ice"
+        >
+          冰
+        </view>
+      </view>
+      <view class="temperature-options">
+        <view 
+          class="temperature-option {{selectedIce === 'less' ? 'selected' : ''}}" 
+          bindtap="selectIce" 
+          data-ice="less"
+        >
+          <text class="{{selectedIce === 'less' ? 'selected-text' : ''}}">少冰</text>
+        </view>
+        <view 
+          class="temperature-option {{selectedIce === 'none' ? 'selected' : ''}}" 
+          bindtap="selectIce" 
+          data-ice="none"
+        >
+          去冰
+        </view>
+        <view 
+          class="temperature-option {{selectedIce === 'full' ? 'selected' : ''}}" 
+          bindtap="selectIce" 
+          data-ice="full"
+        >
+          全冰
+        </view>
+      </view>
+    </view>
+
+    <!-- 浓缩咖啡选择 -->
+    <view class="customization-row">
+      <text class="option-title">浓缩咖啡</text>
+      <view class="espresso-options">
+        <view 
+          class="espresso-option {{selectedEspresso === 'classic' ? 'selected' : ''}}" 
+          bindtap="selectEspresso" 
+          data-espresso="classic"
+        >
+          经典浓缩（深烘）
+        </view>
+        <view 
+          class="espresso-option {{selectedEspresso === 'gold' ? 'selected' : ''}}" 
+          bindtap="selectEspresso" 
+          data-espresso="gold"
+        >
+          金烘浓缩（浅烘）
+        </view>
+        <view 
+          class="espresso-option {{selectedEspresso === 'decaf' ? 'selected' : ''}}" 
+          bindtap="selectEspresso" 
+          data-espresso="decaf"
+        >
+          低因浓缩（深烘）
+        </view>
+      </view>
+    </view>
+
+    <!-- 浓缩类型详情 -->
+    <view class="espresso-detail-section">
+      <view class="espresso-types">
+        <view class="espresso-type">
+          <image src="/pages/images/原萃浓缩.jpg"></image>
+          <view>
+            <text class="type-name">原萃浓缩</text>
+            <text class="type-description">酸度适中，质地顺滑，成熟柑橘般风味</text>
+          </view>
+        </view>
+        <view class="espresso-type">
+          <image src="/pages/images/精萃浓缩.jpg"></image>
+          <view>
+            <text class="type-name">精萃浓缩</text>
+            <text class="type-description">精炼萃取，酸度活泼，新鲜柑橘般风味</text>
+          </view>
+        </view>
+        <view class="espresso-type">
+          <image src="/pages/images/满萃浓缩.jpg"></image>
+          <view>
+            <text class="type-name">满萃浓缩</text>
+            <text class="type-description">深度萃取，酸感柔和，柑橘般风味与黄糖般尾韵</text>
+          </view>
+        </view>
+      </view>
+      <view class="espresso-quantity">
+        <text>浓缩份数</text>
+        <view class="quantity-control">
+          <view class="quantity-btn decrease-btn" bindtap="decreaseQuantity" data-id="{{product.productId}}">
+            <image src="/pages/images/白色减号.png" class="btn-icon" mode="aspectFit"/>
+          </view>
+          <text class="quantity">{{quantity}}</text>
+          <view class="quantity-btn increase-btn" bindtap="increaseQuantity" data-id="{{product.productId}}">
+            <image src="/pages/images/白色加号.png" class="btn-icon" mode="aspectFit"/>
+          </view>
+    </view>
+      </view>
+    </view>
+
+    <!-- 无糖风味定制 -->
+    <view class="customization-row">
+      <text class="option-title">无糖风味定制/添加</text>
+      <view class="sugar-free-banner">
+        <image src="/pages/images/无糖.png"></image>
+      </view>
+      <view class="flavor-options">
+        <view class="flavor-option">
+          <image src="/pages/images/选中香草风味.jpg"></image>
+          <text class="flavor-name">香草风味</text>
+        </view>
+        <view class="flavor-option">
+          <image src="/pages/images/榛果风味.jpg"></image>
+
+          <text class="flavor-name">榛果风味</text>
+        </view>
+        <view class="flavor-option">
+          <image src="/pages/images/海盐焦糖风味.jpg"></image>
+          <text class="flavor-name">海盐焦糖风味</text>
+        </view>
+      </view>
+      <view class="flavor-options1">
+        <view class="flavor-option">
+          <image src="/pages/images/大溪地香草风味.jpg"></image>
+          <text class="flavor-name">大溪地香草风味</text>   
+        </view>
+        <view class="flavor-option selected1">
+          <image src="/pages/images/选中莓莓风味.jpg"></image>
+          <text class="flavor-name">莓莓风味</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 固定底部操作栏 -->
+  <view class="fixed-bottom-bar">
+    <view class="reset-btn" bindtap="resetCustomization">重置客制化</view>
+    <button class="add-to-cart-btn" bindtap="addToCart">添加至购物车￥{{totalPrice}}</button>
+  </view>
+
+  <!-- 滚动时显示的固定标题 -->
+  <view class="sticky-product-header" wx:if="{{showStickyHeader}}">
+    <image src="{{product.imageUrl}}" mode="aspectFill"/>
+    <view class="header-info">
+      <text class="header-title">{{product.productName}}（不另外加糖）</text>
+      <text class="header-desc">大杯/冰/金烘浓缩（浅烘）原萃浓缩/莓莓风味/不另外加糖</text>
+    </view>
+    <view class="divider"></view>
+    <view class="save-customization">
+      <image src="/pages/images/喜欢.jpg" mode="aspectFill"/>
+      <text>保存客制化</text>
+    </view>
+  </view>
+
+  <!-- 滚动监听参考点 -->
+  <view id="scrollTrigger" style="height: 1px; position: absolute; top: 400px"></view>

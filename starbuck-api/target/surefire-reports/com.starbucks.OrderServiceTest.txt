@@ -1,0 +1,52 @@
+-------------------------------------------------------------------------------
+Test set: com.starbucks.OrderServiceTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.907 s <<< FAILURE! -- in com.starbucks.OrderServiceTest
+com.starbucks.OrderServiceTest.payOrder_Success -- Time elapsed: 0.016 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.cacheOrder(com.starbucks.entity.Order)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.payOrder(OrderService.java:90)
+	at com.starbucks.OrderServiceTest.payOrder_Success(OrderServiceTest.java:132)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.starbucks.OrderServiceTest.getUserOrders_Success -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.getUserOrderIds(java.lang.Integer)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.getUserOrders(OrderService.java:97)
+	at com.starbucks.OrderServiceTest.getUserOrders_Success(OrderServiceTest.java:186)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.starbucks.OrderServiceTest.cancelOrder_PaidStatus_Success -- Time elapsed: 0.009 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.cacheOrder(com.starbucks.entity.Order)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.cancelOrder(OrderService.java:187)
+	at com.starbucks.OrderServiceTest.cancelOrder_PaidStatus_Success(OrderServiceTest.java:251)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.starbucks.OrderServiceTest.getOrderDetails_Success -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.getOrderById(java.lang.Integer)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.getOrderDetails(OrderService.java:136)
+	at com.starbucks.OrderServiceTest.getOrderDetails_Success(OrderServiceTest.java:209)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.starbucks.OrderServiceTest.cancelOrder_CreatedStatus_Success -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.cacheOrder(com.starbucks.entity.Order)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.cancelOrder(OrderService.java:187)
+	at com.starbucks.OrderServiceTest.cancelOrder_CreatedStatus_Success(OrderServiceTest.java:229)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.starbucks.OrderServiceTest.createOrder_Success -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.starbucks.service.RedisService.cacheOrder(com.starbucks.entity.Order)" because "this.redisService" is null
+	at com.starbucks.service.OrderService.createOrder(OrderService.java:61)
+	at com.starbucks.OrderServiceTest.createOrder_Success(OrderServiceTest.java:105)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

@@ -1,0 +1,179 @@
+<!-- pages/Checkout/Checkout.wxml -->
+<view class="container">
+  <!-- 取单时间选择 -->
+  <view class="pickup-time">
+    <view class="time-option {{pickupType === 'immediate' ? 'active' : ''}}" bindtap="setPickupType" data-type="immediate">
+      <text>即刻取单</text>
+      <text class="time-range">1-5分钟领取</text>
+    </view>
+    
+    <view class="time-option {{pickupType === 'schedule' ? 'active' : ''}}" bindtap="toggleTimePicker">
+      <text>选择取单时间</text>
+      <text class="time-range" wx:if="{{scheduledTime}}">{{scheduledTime}}</text>
+      <text class="time-range" wx:else>选择时间</text>
+    </view>
+  </view>
+    
+  </view>
+
+ 
+
+  <!-- 我的订单区域 -->
+  <view class="order-section">
+    <view class="section-header">
+      <text>我的订单</text>
+    </view>
+  
+  <!-- 修改1：动态渲染购物车商品列表 -->
+  <block wx:for="{{cartItems}}" wx:key="id">
+      <view class="order-item">
+        <!-- 商品图片（左侧） -->
+        <view class="item-image-container">
+          <image class="item-image" src="{{item.imageUrl}}" mode="aspectFill"></image>
+        </view>
+        
+        <!-- 商品信息（右侧） -->
+        <view class="item-details">
+          <!-- 第一行：商品名称 -->
+          <view class="item-name-row">
+            <text class="item-name">{{item.name}}</text>
+          </view>
+          
+          <!-- 第二行：商品规格 -->
+          <view class="item-specs">
+            <!-- 修改2：显示商品定制选项 -->
+            <text class="item-detail">
+              {{item.selectedSize || '标准'}}/{{item.selectedTemp || '标准'}}/{{item.selectedFlavor || '标准'}}
+            </text>
+          </view>
+          
+          <!-- 第三行：价格和数量 -->
+          <view class="price-quantity-row">
+            <!-- 修改3：使用price字段确保价格一致 -->
+            <text class="item-price">￥{{item.price}}</text>
+            <view class="quantity-control">
+              <view class="minus-cart-btn" bindtap="decreaseQuantity" 
+                  data-id="{{item.id}}">
+                <image 
+                  src="/pages/images/白色减号.png" 
+                  class="quantity-btn" 
+                  mode="widthFix"
+                />
+              </view>
+              <text class="quantity">{{item.quantity}}</text>
+              <view class="add-cart-btn" bindtap="increaseQuantity" 
+                  data-id="{{item.id}}">
+                <image 
+                  src="/pages/images/白色加号.png" 
+                  class="quantity-btn" 
+                  mode="widthFix"
+                />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+ <!-- 优惠券信息 -->
+ <view class="coupon-info">
+      <image class="icon" src="/pages/images/coupon1.png"></image>
+      <text>星享好礼券</text>
+      <text class="status1">暂无可用</text>
+    
+    </view>
+    
+    <!-- 星星信息 -->
+    <view class="stars-info">
+      <image class="icon" src="/pages/images/黄色星星.jpg"></image>
+      <text>好礼星星</text>
+      <text class="status2">暂无可用</text>
+    </view>
+    
+    <!-- 分隔线 -->
+    <view class="divider"></view>
+    
+    <!-- 结算信息 -->
+    <view class="checkout-info">
+      <view class="subtotal">
+        <text>产品小计</text>
+        <text>￥{{totalPrice}}</text>
+      </view>
+    </view>
+  </view>
+   <!-- 会员卡 -->
+  <view class="membership-card">
+  <!-- 标题 -->
+  <view class="card-header">
+    <text class="card-title">★银星专享月卡★</text>
+  </view>
+  
+  <!-- 主要内容 -->
+  <view class="card-content">
+    <view class="benefit-row">
+      <text class="benefit-text">指定饮品享7折，本单省7.8元</text>
+      <text class="benefit-price">￥11.9</text>
+    </view>
+    
+    <!-- 优惠券组合 -->
+    <view class="coupon-group">
+      <view class="coupon-item">
+        <text class="coupon-value">7折×2次</text>
+        <text class="coupon-desc">指定饮品(含臻选)</text>
+      </view>
+      <text class="coupon-plus">+</text>
+      <view class="coupon-item">
+        <text class="coupon-value">7折×1次</text>
+        <text class="coupon-desc">指定饮/食(含臻选)</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 用户协议 -->
+  <view class="agreement-section">
+    <text class="agreement-hint">勾选即同意星享俱乐部会员星礼包的规定和电子会员星礼包说明手册</text>
+    
+    <view class="agreement-checkbox" bindtap="toggleAgreement">
+      <view class="checkbox-icon {{agreed ? 'checked' : ''}}">
+        <icon wx:if="{{agreed}}" type="success" size="16" color="#006241"/>
+      </view>
+      <text class="agreement-text">
+        我已阅读、理解并同意接受《星巴克啡快服务使用条款》。请您特别注意，上述使用条款不仅适用于您的本次订餐服务，还将适用于您以后通过星巴克微信小程序使用的所有啡快服务。
+      </text>
+    </view>
+  </view>
+</view>
+  
+
+  <!-- 底部支付按钮 -->
+  <view class="payment-bar">
+    <button class="pay-btn" bindtap="confirmPayment">支付￥{{totalPrice}}</button>
+  </view>
+
+  <!-- 时间选择器弹窗 -->
+  <view class="time-picker-modal {{showTimePicker ? 'show' : ''}}">
+  <view class="modal-mask" bindtap="toggleTimePicker" data-show="false"></view>
+  <view class="modal-content">
+    <view class="modal-header">
+      <text>选择取单时间</text>
+      <icon 
+        type="cancel" 
+        size="20" 
+        color="#999" 
+        bindtap="toggleTimePicker" 
+        data-show="false"
+      ></icon>
+    </view>
+    <picker-view class="time-picker" value="{{timeIndex}}" bindchange="timeChange">
+      <picker-view-column>
+        <view wx:for="{{dates}}" wx:key="index">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="index">{{item}}时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{minutes}}" wx:key="index">{{item}}分</view>
+      </picker-view-column>
+    </picker-view>
+    <button class="confirm-btn" bindtap="confirmTime">开始下单</button>
+  </view>
+</view>

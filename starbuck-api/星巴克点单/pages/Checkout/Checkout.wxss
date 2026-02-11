@@ -1,0 +1,511 @@
+/* pages/Checkout/Checkout.wxss */
+page {
+  width: 100%;
+  background-color: #e4dfdf;
+  min-height: 100vh; 
+  position: relative;
+  padding-bottom: 100rpx;
+}
+.container {
+  margin-left: 5%;
+  margin-top: 2%;
+  width:90%;
+  padding: 0;  /* 移除内边距 */
+  padding-bottom: 10rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.store-selector {
+  background-color: rgba(255, 255, 255, 0.781);
+  width: 100%;
+  height: 10%;
+  top: 0rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+}
+
+.location-input {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.781);
+  align-items: center;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  padding: 15rpx;
+}
+
+.location-input input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.pickup-time {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx;
+  border-color: #006241;
+  overflow: hidden;
+}
+
+.time-option {
+  flex: 1;
+  padding: 25rpx;
+  text-align: center;
+  border-bottom: 4rpx solid transparent;
+}
+
+.time-option.active {
+  border-bottom-color: #006241;
+}
+
+.time-option text {
+  display: block;
+}
+
+.time-option .time-range {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 订单区域样式 */
+.order-section {
+  top:20%;
+  left:5%;
+  width: 100%;
+  height:20%;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-top: 0; /* 移除顶部间距 */
+  box-sizing: border-box;
+}
+
+.section-header {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.section-header text {
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+/* 订单项布局 */
+.order-item {
+  display: flex;
+  padding: 10rpx 0;
+}
+
+/* 商品图片区域 */
+.item-image-container {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+}
+
+
+/* 商品信息区域 */
+.item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-name-row {
+  margin-bottom: 8rpx;
+}
+
+.item-name {
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.item-specs {
+  margin-bottom: 30rpx;
+  /* 添加以下属性确保容器不换行 */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item-detail {
+   /* 移除flex-direction，text元素默认就是行内元素 */
+   display: inline; /* 确保文本在一行显示 */
+   font-size: 25rpx;
+   letter-spacing: 1rpx;
+   color: rgb(107, 107, 107);
+   /* 可选：如果内容过长显示省略号 */
+   text-overflow: ellipsis;
+   max-width: 100%; /* 限制最大宽度 */
+}
+
+/* 价格和数量行 */
+.price-quantity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-price {
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+/* 圆形加号按钮 */
+.add-cart-btn {
+  width: 35rpx;
+  height: 35rpx;
+  right: 10rpx;
+  background-color: #006241;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.minus-cart-btn {
+  width: 35rpx;
+  height: 35rpx;
+  right: 10rpx;
+  background-color: #006241;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.quantity-btn {
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.quantity {
+  margin: 0 16rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 优惠券和星星信息 */
+.coupon-info, .stars-info {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 0;
+  font-size: 25rpx; 
+  letter-spacing: 2rpx;
+  margin-top:10rpx ;
+}
+
+.coupon-info {
+  border-top: 1rpx solid #f5f5f5;
+  margin-top: 10rpx;
+}
+
+.stars-info {
+  border-bottom: 1rpx solid #f5f5f5;
+  margin-bottom: 10rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+  margin-top: 5rpx;
+}
+
+.status1 {
+  margin-left: 350rpx;
+  color:  rgb(107, 107, 107);
+  font-size: 22rpx;
+}
+.status2{
+  margin-left: 375rpx;
+  color:  rgb(107, 107, 107);
+  font-size: 22rpx;
+}
+
+
+
+/* 分隔线 */
+.divider {
+  height: 1rpx;
+  background-color: rgb(209, 206, 206);
+  margin: 50rpx 0;
+}
+
+/* 结算信息 */
+.checkout-info {
+  padding: 15rpx 0;
+}
+
+.subtotal {
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* 月卡卡片样式 */
+.membership-card {
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    #f5f9f0 0%,    /* 浅绿色调（星巴克品牌衍生色） */
+    #e8f0e0 50%,   /* 中等绿色调 */
+    #d0e0c0 100%   /* 稍深绿色调 */
+  );
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.card-header {
+  margin-bottom: 20rpx;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,0) 100%
+  );
+  padding: 20rpx;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.card-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #006241;
+}
+
+/* 优惠信息行 */
+.benefit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22rpx;
+}
+
+.benefit-text {
+  margin: 5rpx;
+  font-size: 23rpx;
+  letter-spacing: 1rpx;
+  color: #333;
+}
+
+.benefit-price {
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  color: #006241;
+  font-weight: bold;
+}
+
+/* 优惠券组合 */
+.coupon-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25rpx 0;
+}
+
+.coupon-item {
+  flex: 1;
+  padding: 15rpx;
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.coupon-plus {
+  margin: 0 15rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.coupon-value {
+  font-size: 24rpx;
+  color: #006241;
+  font-weight: bold;
+}
+
+.coupon-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+  display: block;
+}
+
+/* 用户协议部分 */
+.agreement-section {
+  margin-top: 30rpx;
+  border-top: 1rpx solid #ccc3c3;
+  padding-top: 20rpx;
+}
+
+.agreement-hint {
+  font-size:18rpx;
+  letter-spacing: 5rpx;
+  color: #006241;
+  margin-left: 10rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 50rpx;
+}
+
+.checkbox-icon {
+  width: 30rpx;
+  height: 30rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 50%;
+  margin-right: 15rpx;
+  margin-top: 38rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-icon.checked {
+  width: 30rpx;
+  height: 30rpx;
+  border-color: #006241;
+  border:2rpx;
+  background-color: #f5f9f0;
+}
+
+.agreement-text {
+  flex: 1;
+  font-size: 22rpx;
+  letter-spacing: 5rpx;
+  color: #666;
+  line-height: 1.6;
+}
+/* 支付框 */
+.payment-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* 左右两端对齐 */
+  align-items: center; /* 垂直居中 */
+  background-color: #fff;
+  padding: 20rpx 25rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+  height: 120rpx; /* 固定高度 */
+  box-sizing: border-box;
+}
+
+/* 支付按钮样式 */
+.pay-btn {
+  background-color: #006241;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 40rpx;
+  min-width: 150rpx; /* 确保按钮有足够宽度 */
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+}
+
+
+.time-picker-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.time-picker-modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 30rpx;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.time-picker-modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-header text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.time-picker {
+  height: 300rpx;
+  margin-bottom: 30rpx;
+}
+
+.confirm-btn {
+  background-color: #006241;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 40rpx;
+  min-width: 150rpx; /* 确保按钮有足够宽度 */
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+
+}

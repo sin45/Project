@@ -1,0 +1,45 @@
+/* pages/addressManage/addressManage.wxss */
+
+.content{
+  background-color: #fff;
+  min-height: 100vh;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.address-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.address-info{
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #eee; 
+  padding-bottom: 20rpx;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.info text{
+  margin-bottom: 15rpx;
+}
+
+.btn-wrap {
+  padding: 48rpx 32rpx 0;
+  margin-bottom: 60rpx;
+}
+.btn-add {
+  width: 100%;
+  background-color: #006241;
+  color: #fff;
+  border-radius: 44rpx;
+  border: none;
+}

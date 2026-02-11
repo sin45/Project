@@ -1,0 +1,272 @@
+/* 顶部导航标签 */
+.nav-tabs {
+  height: 100rpx;
+  display: flex;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab.active {
+  color: #036635;
+  font-weight: bold;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rpx;
+  height: 4rpx;
+  background-color: #036635;
+}
+
+
+
+
+/* 内容区域 */
+.content {
+  background-color: #f5f5f5;
+  min-height: 85vh;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+/* 订单列表 */
+.order-list {
+  padding: 20rpx;
+}
+
+.order-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 订单头部 */
+.order-header {
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-type-status{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-meta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.shop-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.shopname1{
+  display: flex;
+}
+
+.order-type {
+  color: #036635;
+  margin-right: 10rpx;
+}
+
+.shop{
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  max-width: 200px; 
+}
+
+.order-status {
+  font-size: 20rpx;
+  color: #555;
+  margin-left: auto;
+}
+
+.address-time{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.address {
+  font-size: 20rpx;
+  font-weight: lighter;
+  color: #666;
+  margin-bottom: 10rpx;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  max-width: 200px; 
+}
+
+.order-time {
+  font-size: 20rpx;
+  color: #555;
+  margin-left: auto;
+}
+
+/* 订单详情 */
+.order-details {
+  display: flex;
+  margin-bottom: 40rpx;
+  justify-content: space-between;
+}
+
+.item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.item-meta{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-img{
+  width: 150rpx;
+  height: auto;
+}
+
+.item-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  max-width: 200px; 
+}
+
+.item-price {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000;
+  margin-left: auto;
+  margin-bottom: 5rpx;
+}
+
+.price-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-spec {
+  font-size: 20rpx;
+  color: #444;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  max-width: 200px; 
+  margin-bottom: 10rpx;
+}
+
+.item-count {
+  font-size: 24rpx;
+  color: #444;
+  margin-left: auto;
+  margin-bottom: 10rpx;
+}
+
+/* 订单底部 */
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-again-btn {
+  background-color: #036635;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  margin-left: auto;
+}
+
+/* 没有更多订单 */
+.no-more {
+  text-align: center;
+  padding: 30rpx 0;
+  color: #666;
+  font-size: 22rpx;
+}
+
+/* 立即点单按钮样式 */
+.order-btn {
+  width: 80%;
+  margin-top: 40rpx;
+  margin-bottom: 100rpx;
+  background-color: #036635;
+  color: #fff;
+  border-radius: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+/* 无订单样式 */
+.no-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-order-icon {
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.no-order-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.no-order-text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.no-order-tip {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.6;
+  font-weight: bold;
+}

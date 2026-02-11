@@ -1,0 +1,117 @@
+<!--pages/Purchase/Purchase.wxml-->
+<view class="container">
+  <!-- 顶部店铺信息 -->
+  <view class="header">
+    <view class="store-info">
+      <view class="store-chosen">
+        <text class="store-name">眉山市彭山置信逸都城店</text>
+        <text class="store-distance"> | 1.08千米 ></text>
+        <text class="immediate-text">即刻取单</text>
+      </view>
+      <view class="action-buttons">
+        <view class="reserve-hanger">
+          <view class="hanger-line"></view>
+          <view class="hanger-dot"></view>
+        </view>
+        <button class="reserve-btn">预约</button>
+      </view>
+    </view>
+    
+  </view>
+
+  <!-- 优惠提醒 -->
+  <view class="promotion-bar">
+    帮TA带满3杯及以上，每杯还立减3元哦
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <view class="search-input-container">
+    <icon type="search" size="16" color="#999"></icon>
+    <input class="search-input" placeholder="搜饮品" confirm-type="search"  bindinpute="onSearchInput"  bindconfirm="onSearch"/>
+  </view>
+    <view class="PinDan-btn">
+      <button class="help-btn">帮TA带</button>
+    </view>
+  </view>
+
+  <!-- 主菜单区域 -->
+  <view class="menu-container">
+    <!-- 左侧分类 -->
+    <scroll-view 
+      class="left-nav" 
+      scroll-y 
+      scroll-with-animation 
+      scroll-top="{{scrollTop}}"
+      style="height: calc(100vh - 120rpx)"
+>
+    <block wx:for="{{categories}}" wx:key="id">
+      <view class="nav-item {{currentCategory === item.id ? 'active' : ''}}" 
+        bindtap="switchCategory" 
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+        <text class="badge" wx:if="{{item.count > 0}}">{{item.count}}</text>
+      </view>
+    </block>
+  </scroll-view>
+   
+
+    <!-- 右侧商品列表 -->
+  <scroll-view class="right-content" 
+    scroll-y 
+    scroll-with-animation 
+    scroll-into-view="{{'category-'+currentCategory}}"
+    bindscroll="onScroll">
+  <block wx:for="{{categories}}" wx:key="id">
+    <view id="category-{{item.id}}" class="category-section">
+      <view class="category-title">{{item.name}}</view>
+      <block wx:for="{{item.foods}}" wx:key="id" >
+        <view class="food-item" bindtap="goToProduct" data-id="{{item.id}}">
+          <image class="food-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="food-info">
+            <text class="food-name">{{item.name}}</text>
+            <text class="food-desc">{{item.description}}</text>
+            <view class="price-section">
+              <text class="current-price">¥{{item.price}}</text>
+              <text class="original-price" wx:if="{{item.originalPrice}}">¥{{item.originalPrice}}</text>
+              <text class="discount-tag" wx:if="{{item.discount}}">{{item.discount}}折</text>
+            </view>
+          </view>
+          
+          <!-- 购物车操作 - 调整到与food-info同级 -->
+          <view class="cart-action">
+            <view 
+              class="add-cart-btn {{item.quantity > 0 ? 'hidden' : ''}}" 
+              data-category="{{item.categoryId}}" 
+              data-id="{{item.id}}"
+            >
+              <image src="/pages/images/白色加号.png" class="add-icon" />
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  </scroll-view>
+
+<!-- 底部结算栏 -->
+<view class="checkout-bar {{checkoutBar.active ? 'active' : ''}}">
+  <view class="checkout-info">
+    <view class="coupon-info">
+      <image class="coupon-icon" src="/pages/images/coupon1.png"></image>
+      <text>暂无好礼券</text>
+    </view>
+    <view class="price-info">
+      <text class="currency">¥</text>
+      <text class="total-price">{{checkoutBar.price}}</text>
+    </view>
+  </view>
+  
+  <view class="checkout-btn" bindtap="checkout">
+    {{checkoutBar.active ? '去结算(' + checkoutBar.total + ')' : '未选择'}}
+  </view>
+</view>
+ </view>
+</view>
+

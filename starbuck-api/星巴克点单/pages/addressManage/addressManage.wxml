@@ -1,0 +1,17 @@
+<!--pages/addressManage/addressManage.wxml-->
+<view class="content">
+  <view class="address-list">
+    <view wx:for="{{addressList}}" wx:key="id" class="address-info">
+      <view class="info">
+        <text style="font-size: 36rpx;font-weight: bold;">{{item.address1}}</text>
+        <text>{{item.address2}}</text>
+        <text style="color: #999;">{{item.receiver}} {{item.phone}}</text>
+      </view>
+      <view>></view>
+    </view>
+  </view>
+
+  <view class="btn-wrap">
+    <button class="btn-add" bindtap="addAddress">+添加地址</button>
+  </view>
+</view>

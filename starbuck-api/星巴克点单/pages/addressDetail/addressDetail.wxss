@@ -1,0 +1,126 @@
+/* 地址添加/编辑页 */
+.page-address {
+  min-height: 100vh;
+  background: #fff;
+  padding-bottom: 120rpx;
+}
+
+.form-list {
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 32rpx;
+  font-size: 30rpx;
+}
+
+.label {
+  color: #333;
+  font-weight: bold;
+  flex-shrink: 0;
+  width: 140rpx;
+}
+
+.row-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.row-input-group {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.input {
+  text-align: right;
+  color: #333;
+  font-size: 30rpx;
+  min-width: 0;
+}
+
+.input.flex-1 {
+  flex: 1;
+}
+
+.placeholder {
+  color: #bbb;
+  font-size: 30rpx;
+}
+
+.value {
+  color: #333;
+  font-size: 30rpx;
+}
+
+/* 性别：先生/女士 */
+.gender-group {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  flex-shrink: 0;
+}
+
+.gender-item {
+  font-size: 28rpx;
+  color: #999;
+  padding: 8rpx 0;
+}
+
+.gender-item.active {
+  color: #333;
+  font-weight: 500;
+}
+
+/* 授权微信手机号链接 */
+.link-auth {
+  font-size: 28rpx;
+  color: #07c160;
+  flex-shrink: 0;
+}
+
+.arrow {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+.picker-inner {
+  flex: 1;
+}
+
+.divider {
+  height: 1rpx;
+  background: #eee;
+  margin-left: 32rpx;
+}
+
+.row-switch {
+  padding: 28rpx 32rpx;
+}
+
+.btn-wrap {
+  padding: 48rpx 32rpx 0;
+}
+
+.btn-confirm {
+  width: 100%;
+  background: #e5e5e5;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  border: none;
+}
+
+.btn-confirm::after {
+  border: none;
+}
+
+.btn-confirm.active {
+  background: #333;
+}

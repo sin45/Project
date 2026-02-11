@@ -1,0 +1,74 @@
+<view class="page-location">
+
+<!-- 顶部地图区域，使用 map 组件 -->
+<view class="map-wrap">
+  <map
+    class="map-bg"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    scale="16"
+    markers="{{markers}}"
+    show-location="true"
+  ></map>
+
+  <!-- 中心定位点 -->
+  <view class="map-marker">
+    <view class="marker-inner"></view>
+  </view>
+
+  <!-- 城市 + 搜索框 -->
+  <view class="search-bar">
+    <view class="city" bindtap="onCityTap">
+      <text class="city-text">{{cityName}}</text>
+      <text class="city-arrow">∨</text>
+    </view>
+
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索路名/小区/写字楼等"
+        placeholder-class="placeholder"
+        value="{{keyword}}"
+        confirm-type="search"
+        bindinput="onKeywordInput"
+        bindconfirm="onSearchConfirm"
+      />
+    </view>
+  </view>
+</view>
+
+<!-- 地址列表 -->
+<scroll-view
+  class="addr-list"
+  scroll-y="true"
+>
+  <block wx:for="{{addressList}}" wx:key="id">
+    <view
+      class="addr-item"
+      bindtap="onSelectItem"
+      data-index="{{index}}"
+    >
+      <view class="addr-main">
+        <text class="addr-title">{{item.title}}</text>
+        <text
+          wx:if="{{currentIndex === index}}"
+          class="addr-checked"
+        >✔</text>
+      </view>
+      <text class="addr-desc">{{item.desc}}</text>
+    </view>
+  </block>
+</scroll-view>
+
+<!-- 底部确认按钮 -->
+<view class="bottom-bar">
+  <button
+    class="btn-confirm {{currentIndex === -1 ? '' : 'active'}}"
+    bindtap="onConfirm"
+  >
+    确认
+  </button>
+</view>
+</view>
+
