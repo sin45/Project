@@ -196,39 +196,6 @@
           <view class="quantity-btn increase-btn" bindtap="increaseQuantity" data-id="{{product.productId}}">
             <image src="/pages/images/白色加号.png" class="btn-icon" mode="aspectFit"/>
           </view>
-    </view>
-      </view>
-    </view>
-
-    <!-- 无糖风味定制 -->
-    <view class="customization-row">
-      <text class="option-title">无糖风味定制/添加</text>
-      <view class="sugar-free-banner">
-        <image src="/pages/images/无糖.png"></image>
-      </view>
-      <view class="flavor-options">
-        <view class="flavor-option">
-          <image src="/pages/images/选中香草风味.jpg"></image>
-          <text class="flavor-name">香草风味</text>
-        </view>
-        <view class="flavor-option">
-          <image src="/pages/images/榛果风味.jpg"></image>
-
-          <text class="flavor-name">榛果风味</text>
-        </view>
-        <view class="flavor-option">
-          <image src="/pages/images/海盐焦糖风味.jpg"></image>
-          <text class="flavor-name">海盐焦糖风味</text>
-        </view>
-      </view>
-      <view class="flavor-options1">
-        <view class="flavor-option">
-          <image src="/pages/images/大溪地香草风味.jpg"></image>
-          <text class="flavor-name">大溪地香草风味</text>   
-        </view>
-        <view class="flavor-option selected1">
-          <image src="/pages/images/选中莓莓风味.jpg"></image>
-          <text class="flavor-name">莓莓风味</text>
         </view>
       </view>
     </view>

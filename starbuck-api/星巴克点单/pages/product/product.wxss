@@ -1,7 +1,6 @@
 /* pages/ProductDetail/ProductDetail.wxss */
 .product-detail-container {
   width: 100%;
-  height: 2800rpx;
   background-color: #fff;
   padding-bottom: 160rpx;
   display: flex;
@@ -260,58 +259,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-}
-
-/* 无糖风味定制 */
-.sugar-free-banner {
-  height: 90rpx;
-  margin: 20rpx 10rpx;
-}
-.sugar-free-banner image {
-  width: 100%;
-  height: 100%;
-}
-.flavor-options {
-  display: flex;
-  margin-top: 20rpx;
-  justify-content: space-around;
-}
-.flavor-options1{
-  display: flex;
-  margin-top: 20rpx;
-  justify-content: space-around;
-  width: 480rpx;
-}
-.flavor-option {
-  width: 205rpx;
-  height: 170rpx;
-  border-radius: 20rpx;
-  border: 1rpx solid #E5E5E5;
-  text-align: center;
-  padding-top: 30rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30rpx; 
-}
-.flavor-option1{
-  display: flex;
-  margin-top: 20rpx;
-  justify-content: space-around;
-  width: 480rpx;
-}
-.flavor-option.selected {
-  border-color: #1A714B;
-}
-.flavor-option image {
-  width: 60rpx;
-  height: 60rpx;
-}
-.flavor-name {
-  font-size: 24rpx;
-  letter-spacing: 2rpx;
-  color: #000;
-  margin-top: 10rpx;
 }
 
 /* 固定底部操作栏 */

@@ -5,73 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b6765f1-cb44-488a-9d7e-a51a4c6f7590" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/app.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/24165009763.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/banner5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/default.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_home_active.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_menu_active.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_order.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_order_active.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/tab_user_active.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/专星送.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/五黑贝果.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/啡快.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/小熊蛋糕.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/拼单.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/无糖.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/星会员界面.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/果香蜜香.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/标签1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/标签2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/桃梨冰摇.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/甜橙拿铁.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/生活馆.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/省心购.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/胡闹冰摇茶.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/蓝莓+甜橙.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/蓝莓拿铁.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/蓝调爆珠冰摇 .jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/送心意.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/黑加仑冰摇.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/user/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/user/user.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/user/user.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/user/user.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/user/user.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/xinghuiyuan/xinghuiyuan.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/xinghuiyuan/xinghuiyuan.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/xinghuiyuan/xinghuiyuan.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/xinghuiyuan/xinghuiyuan.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/project.private.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/project.private.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/default-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/default-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2026-01-31T15-05-39_706.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.BalanceLogRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.BalanceLogRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.OrderServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.OrderServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.ProductControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.ProductControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.RedisServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.RedisServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.BalanceLogRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.BalanceLogRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.OrderServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.OrderServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.ProductControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.ProductControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.RedisServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.RedisServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/无糖风味.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/榛果风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/海盐焦糖风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/莓莓风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中榛果风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中海盐焦糖风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中莓莓风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中香草风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/香草风味.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -86,29 +86,32 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="38yeSgEhgeyEShaEiyJrhoYHOOt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.StarbucksApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.starbucks-api [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.starbucks-api [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.starbucks-api [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.StarbucksApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Project/starbuck-api&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StarbucksApplication.executor": "Run",
+    "Maven.starbucks-api [clean].executor": "Run",
+    "Maven.starbucks-api [compile].executor": "Run",
+    "Maven.starbucks-api [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.StarbucksApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Project/starbuck-api",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.StarbucksApplication">
     <configuration name="StarbucksApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.starbucks.StarbucksApplication" />

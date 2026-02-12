@@ -197,6 +197,7 @@ button::after {
 /* 主菜单区域 */
 .menu-container {
   height: 100%;
+  width: 100%;
   position:fixed;
   top:300rpx;
   bottom: 100rpx; /* 为底部结算栏留出空间 */
@@ -247,7 +248,7 @@ button::after {
 
 /* 右侧内容 */
 .right-content {
-  width: 550rpx;
+  width: 73%;
   max-height: calc(100vh - 300rpx - 120rpx); /* 300rpx为顶部区域，120rpx为结算栏高度 */
   overflow-y: auto;
   display: block;

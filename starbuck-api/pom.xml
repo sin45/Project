@@ -79,12 +79,25 @@
 			<version>4.6.0</version>
 		</dependency>
 
-		<!-- 测试 -->
+		<!-- HTTP请求工具 -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.12.0</version>
 		</dependency>
+		<!-- 微信支付V3 SDK（简化开发） -->
+		<dependency>
+			<groupId>com.github.wechatpay-apiv3</groupId>
+			<artifactId>wechatpay-java</artifactId>
+			<version>0.2.10</version>
+		</dependency>
+		<!-- 工具类（简化签名、加密等） -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.8.26</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

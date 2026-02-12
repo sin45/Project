@@ -265,6 +265,51 @@ Page({
     });
   },
 
+  /**
+   * 新的微信支付
+   */
+  newPay() {
+    const that = this
+    const userInfo = wx.getStorageSync('userInfo');
+    wx.request({
+      url: 'https://your-domain.com/api/pay/unifiedOrder',
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        openid: userInfo.wx_openid,       
+        amount: 1,                   // 金额（单位：分）
+        description: '星巴克饮品一杯' // 商品描述
+      },
+      success(res) {
+        const data = res.data
+        const payParams = data.data
+        // payParams 内包含 timeStamp, nonceStr, package, signType, paySign
+        wx.requestPayment({
+          timeStamp: payParams.timeStamp,
+          nonceStr: payParams.nonceStr,
+          package: payParams.package,
+          signType: payParams.signType,
+          paySign: payParams.paySign,
+          success() {
+            wx.showToast({ title: '支付成功', icon: 'success' })
+            // TODO 支付成功后的业务处理（例如刷新订单状态）
+          },
+          fail(err) {
+            console.error('支付失败', err)
+            wx.showToast({ title: '支付取消或失败', icon: 'none' })
+          }
+        })
+      },
+      fail(err) {
+        console.error('统一下单接口失败', err)
+        wx.showToast({ title: '网络异常', icon: 'none' })
+      }
+    })
+
+  },
+
   toggleAgreement() {
     this.setData({ agreed: !this.data.agreed });
   },

@@ -318,7 +318,6 @@ Page({
    */
   onLoad(options) {
     this.initCartData();
-    wx.setNavigationBarTitle({ title: '啡快' });
     // 拉取商品数据并组装分类
     wx.request({
       url: 'http://localhost:8080/api/products',
