@@ -186,104 +186,30 @@ Page({
     });
   },
 
+  /**
+   * 支付
+   */
   confirmPayment() {
+    const _this = this
     const userInfo = wx.getStorageSync('userInfo');
-    const userId = userInfo && (userInfo.user_id || userInfo.userId);
-    if (!userInfo || !userId) {
-      wx.navigateTo({ url: '/pages/login/login' });
-      return;
-    }
-    const totalPrice = parseFloat(this.data.totalPrice);
-    if (userInfo.money < totalPrice) {
-      wx.showToast({ title: '余额不足，请向柜员充值', icon: 'none' });
-      return;
-    }
+    const openid = userInfo && (userInfo.wx_openid || userInfo.wxOpenid);
+    //调用后台发起预支付
     wx.request({
-      url: `http://localhost:8080/api/balance/payment/${userId}`,
+      url: `http://localhost:8080/api/wxPay/unifiedOrder`,
       method: 'POST',
       data: {
+        openId: openid,
         amount: Math.round(totalPrice),
-        remarks: '小程序下单支付'
+        description: '小程序下单支付'
       },
       header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       success: (res) => {
-        if (res.data && res.data.success !== false) {
-          userInfo.money -= totalPrice;
-          wx.setStorageSync('userInfo', userInfo);
-          wx.showToast({ title: '支付成功', icon: 'success' });
-
-          // 组装订单数据
-          const orderData = {
-            userId,
-            storeId: this.data.selectedStore ? this.data.selectedStore.id : 1,
-            pickupTime: new Date().toISOString(), // 可根据实际需求调整
-            orderDetails: this.data.cartItems.map(item => ({
-              productId: item.id,
-              productName: item.name,
-              productImage: item.imageUrl,
-              quantity: item.quantity,
-              unitPrice: item.price,
-              subtotal: (item.price * item.quantity).toFixed(2),
-              customization: [item.selectedSize, item.selectedTemp, item.selectedFlavor].join('/')
-            }))
-          };
-
-          // 调用后端创建订单
-          wx.request({
-            url: 'http://localhost:8080/api/orders',
-            method: 'POST',
-            data: orderData,
-            header: { 'Content-Type': 'application/json' },
-            success: (orderRes) => {
-              // 清空购物车
-              const app = getApp();
-              if (typeof app.clearCart === 'function') {
-                app.clearCart();
-              } else {
-                wx.removeStorageSync('cartItems');
-              }
-              // 设置刷新用户信息标志
-              wx.setStorageSync('refreshUserInfo', true);
-              // 跳转首页
-              setTimeout(() => {
-                wx.switchTab({
-                  url: '/pages/ShouYe/ShouYe'
-                });
-              }, 800);
-            },
-            fail: () => {
-              wx.showToast({ title: '订单保存失败', icon: 'none' });
-            }
-          });
-        } else {
-          wx.showToast({ title: res.data.message || '支付失败', icon: 'none' });
-        }
-      },
-      fail: () => {
-        wx.showToast({ title: '支付请求失败', icon: 'none' });
-      }
-    });
-  },
-
-  /**
-   * 新的微信支付
-   */
-  newPay() {
-    const that = this
-    const userInfo = wx.getStorageSync('userInfo');
-    wx.request({
-      url: 'https://your-domain.com/api/pay/unifiedOrder',
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        openid: userInfo.wx_openid,       
-        amount: 1,                   // 金额（单位：分）
-        description: '星巴克饮品一杯' // 商品描述
-      },
-      success(res) {
         const data = res.data
+        if (data.code !== 0) {
+          wx.showToast({ title: data.msg || '下单失败', icon: 'none' })
+          return
+        }
+        //预支付成功后 - 发起微信支付
         const payParams = data.data
         // payParams 内包含 timeStamp, nonceStr, package, signType, paySign
         wx.requestPayment({
@@ -294,7 +220,8 @@ Page({
           paySign: payParams.paySign,
           success() {
             wx.showToast({ title: '支付成功', icon: 'success' })
-            // TODO 支付成功后的业务处理（例如刷新订单状态）
+            //支付成功后创建订单
+            _this.createOrder();
           },
           fail(err) {
             console.error('支付失败', err)
@@ -302,12 +229,62 @@ Page({
           }
         })
       },
-      fail(err) {
-        console.error('统一下单接口失败', err)
-        wx.showToast({ title: '网络异常', icon: 'none' })
+      fail: () => {
+        wx.showToast({ title: '支付请求失败', icon: 'none' });
       }
-    })
+    });
+  },
 
+  /**
+   * 创建订单
+   */
+  createOrder() {
+
+    const userInfo = wx.getStorageSync('userInfo');
+    const userId = userInfo && (userInfo.userId || userInfo.User_id);
+
+    // 组装订单数据
+    const orderData = {
+      userId: userId,
+      storeId: this.data.selectedStore ? this.data.selectedStore.id : 1,
+      pickupTime: new Date().toISOString(), // 可根据实际需求调整
+      orderDetails: this.data.cartItems.map(item => ({
+        productId: item.id,
+        productName: item.name,
+        productImage: item.imageUrl,
+        quantity: item.quantity,
+        unitPrice: item.price,
+        subtotal: (item.price * item.quantity).toFixed(2),
+        customization: [item.selectedSize, item.selectedTemp, item.selectedFlavor].join('/')
+      }))
+    };
+    // 调用后端创建订单
+    wx.request({
+      url: 'http://localhost:8080/api/orders',
+      method: 'POST',
+      data: orderData,
+      header: { 'Content-Type': 'application/json' },
+      success: (orderRes) => {
+        // 清空购物车
+        const app = getApp();
+        if (typeof app.clearCart === 'function') {
+          app.clearCart();
+        } else {
+          wx.removeStorageSync('cartItems');
+        }
+        // 设置刷新用户信息标志
+        wx.setStorageSync('refreshUserInfo', true);
+        // 跳转订单
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/DingDan/DingDan'
+          });
+        }, 800);
+      },
+      fail: () => {
+        wx.showToast({ title: '订单保存失败', icon: 'none' });
+      }
+    });
   },
 
   toggleAgreement() {

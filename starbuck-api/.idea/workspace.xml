@@ -5,58 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b6765f1-cb44-488a-9d7e-a51a4c6f7590" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/default-avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/商品9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/default-avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/商品9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2026-01-31T15-05-39_706.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.BalanceLogRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.BalanceLogRepositoryTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.OrderServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.OrderServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.ProductControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.ProductControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.RedisServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.RedisServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.BalanceLogRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.BalanceLogRepositoryTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.OrderServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.OrderServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.ProductControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.ProductControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.RedisServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.RedisServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/config/WxPayProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/config/WxPayProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/BalanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/BalanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/PayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/WxPayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/service/WxPayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/service/WxPayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.json" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/无糖风味.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/榛果风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/海盐焦糖风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/莓莓风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中榛果风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中海盐焦糖风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中莓莓风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/选中香草风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/images/香草风味.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,12 +56,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.StarbucksApplication.executor": "Run",
+    "Application.StarbucksApplication.executor": "Debug",
+    "Application.WxManageController.executor": "Debug",
     "Maven.starbucks-api [clean].executor": "Run",
     "Maven.starbucks-api [compile].executor": "Run",
     "Maven.starbucks-api [install].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.StarbucksApplication.executor": "Debug",
     "git-widget-placeholder": "main",
@@ -109,16 +72,29 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.StarbucksApplication">
+  <component name="RunManager" selected="Application.StarbucksApplication">
     <configuration name="StarbucksApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.starbucks.StarbucksApplication" />
       <module name="starbucks-api" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.starbucks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WxManageController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.starbucks.controller.WxManageController" />
+      <module name="starbucks-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.starbucks.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,8 +118,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.StarbucksApplication" />
         <item itemvalue="Application.StarbucksApplication" />
+        <item itemvalue="Application.WxManageController" />
+        <item itemvalue="Spring Boot.StarbucksApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +140,17 @@
       <updated>1769776242616</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/starbucks/controller/WeChatMessageController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -5,6 +5,9 @@ import com.starbucks.service.BalanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 旧的支付类 - 线下充值 - 不走微信支付版
+ */
 @RestController
 @RequestMapping("/api/balance")
 @RequiredArgsConstructor

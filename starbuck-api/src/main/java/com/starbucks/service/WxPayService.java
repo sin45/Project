@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.starbucks.config.WxPayProperties;
 import com.starbucks.dto.WxPayUnifiedOrderResult;
 import okhttp3.*;
+import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-@Service
+//@Service
 public class WxPayService {
 
     private final PrivateKey privateKey;

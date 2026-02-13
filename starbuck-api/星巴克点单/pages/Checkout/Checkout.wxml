@@ -100,53 +100,11 @@
       </view>
     </view>
   </view>
-   <!-- 会员卡 -->
-  <view class="membership-card">
-  <!-- 标题 -->
-  <view class="card-header">
-    <text class="card-title">★银星专享月卡★</text>
-  </view>
-  
-  <!-- 主要内容 -->
-  <view class="card-content">
-    <view class="benefit-row">
-      <text class="benefit-text">指定饮品享7折，本单省7.8元</text>
-      <text class="benefit-price">￥11.9</text>
-    </view>
-    
-    <!-- 优惠券组合 -->
-    <view class="coupon-group">
-      <view class="coupon-item">
-        <text class="coupon-value">7折×2次</text>
-        <text class="coupon-desc">指定饮品(含臻选)</text>
-      </view>
-      <text class="coupon-plus">+</text>
-      <view class="coupon-item">
-        <text class="coupon-value">7折×1次</text>
-        <text class="coupon-desc">指定饮/食(含臻选)</text>
-      </view>
-    </view>
-  </view>
-  
-  <!-- 用户协议 -->
-  <view class="agreement-section">
-    <text class="agreement-hint">勾选即同意星享俱乐部会员星礼包的规定和电子会员星礼包说明手册</text>
-    
-    <view class="agreement-checkbox" bindtap="toggleAgreement">
-      <view class="checkbox-icon {{agreed ? 'checked' : ''}}">
-        <icon wx:if="{{agreed}}" type="success" size="16" color="#006241"/>
-      </view>
-      <text class="agreement-text">
-        我已阅读、理解并同意接受《星巴克啡快服务使用条款》。请您特别注意，上述使用条款不仅适用于您的本次订餐服务，还将适用于您以后通过星巴克微信小程序使用的所有啡快服务。
-      </text>
-    </view>
-  </view>
-</view>
-  
 
   <!-- 底部支付按钮 -->
   <view class="payment-bar">
-    <button class="pay-btn" bindtap="confirmPayment">支付￥{{totalPrice}}</button>
+    <!-- 现在没调用支付，后期改成confirmPayment -->
+    <button class="pay-btn" bindtap="createOrder">支付￥{{totalPrice}}</button>
   </view>
 
   <!-- 时间选择器弹窗 -->

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ifManage: true
+    ifManage: false
   },
 
   /**
@@ -18,26 +18,41 @@ Page({
   handleBannerClick: function(event) {
     const type = event.currentTarget.dataset.type;
     console.log('点击了:', type);
-    
-    if (type === '啡快' || type === '专星送') {
-      wx.navigateTo({
-        url: '/pages/Purchase/Purchase'
-      });
-    }
+    //传递参数 - 外送另外处理
+    wx.navigateTo({
+      url: '/pages/Purchase/Purchase'
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    const userInfo = wx.getStorageSync('userInfo');
+    const openId = userInfo.wxOpenid;
+    console.log("我的openid：", openId);
+    wx.request({
+      url: 'http://localhost:8080/api/wxManage/getManageOpenId',
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: { openId: openId },
+      success: (serverRes) => {
+        if(serverRes.data){
+          this.setData({
+            ifManage: true
+          })
+        }
+      }
+    });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    
   },
 
   /**
@@ -79,6 +94,14 @@ Page({
    * 订单管理页
    */
   showOrderManage() {
+    
+    wx.requestSubscribeMessage({
+      tmplIds: ["1O_8IWVXlIZrpkpN1cumKXR9GsHq4urv3plxAvX0Y0I"],
+      success (res) {
+        console.log("订阅结果：", res)
+      }
+    });
+    
     wx.navigateTo({ url: '/pages/orderManage/orderManage' });
   }
 })

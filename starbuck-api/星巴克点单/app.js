@@ -1,17 +1,40 @@
 App({
   onLaunch() {
-    // 静默检查登录状态（不强制跳转）
+    //用户信息为空，尝试登陆
     const userInfo = wx.getStorageSync('userInfo');
-    if (userInfo) {
-      this.globalData.userInfo = userInfo;
+    if(userInfo === null || userInfo === undefined || userInfo === ''){
+      wx.login({
+        success: (res) => {
+          if (res.code) {
+            console.log('获取到的code:', res.code);
+            wx.request({
+              url: 'http://localhost:8080/api/users/login/wechat',
+              method: 'POST',
+              header: {
+                'content-type': 'application/json'
+              },
+              data: { code: res.code },
+              success: (serverRes) => {
+                console.log('获取到的userInfo:', serverRes.data.user);
+                wx.setStorageSync('userInfo', serverRes.data.user);
+                this.globalData.userInfo = userInfo;
+              }
+            });
+          } else {
+            console.log('登录失败:', res.errMsg);
+          }
+        }
+      });
     }
+
     // 初始化购物车
     if (!this.globalData.cartItems) {
       this.globalData.cartItems = [];
     }
   },
   globalData: {
-    cartItems: []
+    cartItems: [],
+    userInfo: ""
   },
   getCartItems() {
     return this.globalData.cartItems || [];

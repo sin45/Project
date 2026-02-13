@@ -2,7 +2,7 @@ package com.starbucks.config;
 
 public class WxPayProperties {
     // 小程序 appid
-    public static final String APPID = "wx1234567890abcdef";
+    public static final String APPID = "wx2e9d7a6b13542f37";
     // 商户号 mchid
     public static final String MCH_ID = "1234567890";
     // 商户 API v3 密钥

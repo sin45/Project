@@ -28,6 +28,10 @@ wx:
   miniapp:
     appid: wx2e9d7a6b13542f37
     secret: 6bdff789b2d509eafb98121282ffdf9a
+    # 订阅消息发送接口地址
+    send-message-url: https://api.weixin.qq.com/cgi-bin/message/subscribe/send
+    # access_token获取接口地址
+    access-token-url: https://api.weixin.qq.com/cgi-bin/token
 
 logging:
   level:

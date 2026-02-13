@@ -1,31 +1,28 @@
 package com.starbucks.controller;
 
-import com.starbucks.dto.UnifiedOrderRequest;
 import com.starbucks.dto.WxPayUnifiedOrderResult;
 import com.starbucks.service.WxPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/api/pay")
-public class PayController {
+//@RestController
+@RequestMapping("/api/wxPay")
+public class WxPayController {
 
     @Autowired
     private WxPayService wxPayService;
 
     // 小程序端调用的统一下单接口
     @PostMapping("/unifiedOrder")
-    public Map<String, Object> unifiedOrder() {
+    public Map<String, Object> unifiedOrder(Map<String, String> params) {
 
-        int amount = 100;
-        String description = "支付测试";
-        String openId = "111";
+        int amount = Integer.valueOf(params.get("amount"));
+        String description = params.get("description");
+        String openId = params.get("openId");
 
         // 2. 创建你自己业务订单（略）
 
