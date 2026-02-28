@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 获取管理人员的openid - 前端判断显示所有订单
+ */
 @RestController
 @RequestMapping("/api/wxManage")
 public class WxManageController {

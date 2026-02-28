@@ -29,11 +29,11 @@ public class WeChatMessageController {
 
         // 组装模板参数（需和你的订阅模板字段完全匹配）
         JSONObject data = new JSONObject();
-        data.put("thing3", new JSONObject().fluentPut("value", "美式*3"));
+        data.put("thing3", new JSONObject().fluentPut("value", "拿铁*3"));
         data.put("phrase4", new JSONObject().fluentPut("value", "新订单"));
-        data.put("thing5", new JSONObject().fluentPut("value", ""));
-        data.put("thing5", new JSONObject().fluentPut("amount6", "50"));
-        data.put("thing5", new JSONObject().fluentPut("value", "121212"));
+        data.put("thing5", new JSONObject().fluentPut("value", "无"));
+        data.put("amount6", new JSONObject().fluentPut("amount6", "50"));
+        data.put("character_string2", new JSONObject().fluentPut("value", "121212"));
 
         // 发送消息（跳转页面：/pages/order/detail?orderId=123）
         boolean result = weChatMiniUtils.sendSubscribeMessage(

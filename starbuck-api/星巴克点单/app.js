@@ -8,7 +8,7 @@ App({
           if (res.code) {
             console.log('获取到的code:', res.code);
             wx.request({
-              url: 'http://localhost:8080/api/users/login/wechat',
+              url: 'http://230791mi80.51mypc.cn/api/users/login/wechat',
               method: 'POST',
               header: {
                 'content-type': 'application/json'

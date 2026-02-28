@@ -32,7 +32,7 @@ Page({
     const openId = userInfo.wxOpenid;
     console.log("我的openid：", openId);
     wx.request({
-      url: 'http://localhost:8080/api/wxManage/getManageOpenId',
+      url: 'http://230791mi80.51mypc.cn/api/wxManage/getManageOpenId',
       method: 'POST',
       header: {
         'content-type': 'application/json'
@@ -96,7 +96,7 @@ Page({
   showOrderManage() {
     
     wx.requestSubscribeMessage({
-      tmplIds: ["1O_8IWVXlIZrpkpN1cumKXR9GsHq4urv3plxAvX0Y0I"],
+      tmplIds: ["cU0fxhT7E3hxUxRScQ0QHqLGMaEQQMNDEDgtr4BIXHY"],
       success (res) {
         console.log("订阅结果：", res)
       }

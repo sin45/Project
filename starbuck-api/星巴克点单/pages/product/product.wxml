@@ -48,7 +48,7 @@
           </view>
           <view class="size-info">
             <text class="size-name">中杯</text>
-            <text class="size-volume">355ml</text>
+            <text class="size-volume">330ml</text>
           </view>
         </view>
         
@@ -62,7 +62,7 @@
           </view>
           <view class="size-info">
             <text class="size-name selected-text">大杯</text>
-            <text class="size-volume">473ml</text>
+            <text class="size-volume">400ml</text>
           </view>
         </view>
         
@@ -76,14 +76,14 @@
           </view>
           <view class="size-info">
             <text class="size-name">超大杯</text>
-            <text class="size-volume">592ml</text>
+            <text class="size-volume">1000ml</text>
           </view>
         </view>
       </view>
     </view>
 
     <!-- 温度选择 -->
-    <view class="customization-row">
+    <view class="customization-row" style="margin-bottom: 0rpx;">
       <text class="option-title">温度</text>
       <view class="temperature-options">
         <view 
@@ -101,34 +101,36 @@
           微热
         </view>
         <view 
+          class="temperature-option {{selectedTemp === 'none' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="none"
+        >
+          去冰
+        </view>
+      </view>
+    </view>
+    <view class="customization-row">
+      <view class="temperature-options">
+        <view 
+          class="temperature-option {{selectedTemp === 'less' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="less"
+        >
+          <text class="{{selectedTemp === 'less' ? 'selected-text' : ''}}">少冰</text>
+        </view>
+        <view 
           class="temperature-option {{selectedTemp === 'ice' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
           data-temp="ice"
         >
-          冰
-        </view>
-      </view>
-      <view class="temperature-options">
-        <view 
-          class="temperature-option {{selectedIce === 'less' ? 'selected' : ''}}" 
-          bindtap="selectIce" 
-          data-ice="less"
-        >
-          <text class="{{selectedIce === 'less' ? 'selected-text' : ''}}">少冰</text>
+          标准冰
         </view>
         <view 
-          class="temperature-option {{selectedIce === 'none' ? 'selected' : ''}}" 
-          bindtap="selectIce" 
-          data-ice="none"
+          class="temperature-option {{selectedTemp === 'full' ? 'selected' : ''}}" 
+          bindtap="selectTemperature" 
+          data-temp="full"
         >
-          去冰
-        </view>
-        <view 
-          class="temperature-option {{selectedIce === 'full' ? 'selected' : ''}}" 
-          bindtap="selectIce" 
-          data-ice="full"
-        >
-          全冰
+          多冰
         </view>
       </view>
     </view>
@@ -144,26 +146,12 @@
         >
           经典浓缩（深烘）
         </view>
-        <view 
-          class="espresso-option {{selectedEspresso === 'gold' ? 'selected' : ''}}" 
-          bindtap="selectEspresso" 
-          data-espresso="gold"
-        >
-          金烘浓缩（浅烘）
-        </view>
-        <view 
-          class="espresso-option {{selectedEspresso === 'decaf' ? 'selected' : ''}}" 
-          bindtap="selectEspresso" 
-          data-espresso="decaf"
-        >
-          低因浓缩（深烘）
-        </view>
       </view>
     </view>
 
     <!-- 浓缩类型详情 -->
     <view class="espresso-detail-section">
-      <view class="espresso-types">
+      <!-- <view class="espresso-types">
         <view class="espresso-type">
           <image src="/pages/images/原萃浓缩.jpg"></image>
           <view>
@@ -185,15 +173,15 @@
             <text class="type-description">深度萃取，酸感柔和，柑橘般风味与黄糖般尾韵</text>
           </view>
         </view>
-      </view>
+      </view> -->
       <view class="espresso-quantity">
         <text>浓缩份数</text>
         <view class="quantity-control">
-          <view class="quantity-btn decrease-btn" bindtap="decreaseQuantity" data-id="{{product.productId}}">
+          <view class="quantity-btn decrease-btn" bindtap="decreaseEspressoQuantity" data-id="{{product.productId}}">
             <image src="/pages/images/白色减号.png" class="btn-icon" mode="aspectFit"/>
           </view>
-          <text class="quantity">{{quantity}}</text>
-          <view class="quantity-btn increase-btn" bindtap="increaseQuantity" data-id="{{product.productId}}">
+          <text class="quantity">{{espressoQuantity}}</text>
+          <view class="quantity-btn increase-btn" bindtap="increaseEspressoQuantity" data-id="{{product.productId}}">
             <image src="/pages/images/白色加号.png" class="btn-icon" mode="aspectFit"/>
           </view>
         </view>
