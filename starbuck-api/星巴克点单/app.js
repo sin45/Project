@@ -8,7 +8,7 @@ App({
           if (res.code) {
             console.log('获取到的code:', res.code);
             wx.request({
-              url: 'http://230791mi80.51mypc.cn/api/users/login/wechat',
+              url: this.apiUrl('/api/users/login/wechat'),
               method: 'POST',
               header: {
                 'content-type': 'application/json'
@@ -34,7 +34,14 @@ App({
   },
   globalData: {
     cartItems: [],
-    userInfo: ""
+    userInfo: "",
+    apiBaseUrl: "http://localhost:8080"
+  },
+  apiUrl(path) {
+    const base = String(this.globalData.apiBaseUrl || "").replace(/\/+$/, "");
+    const p = String(path || "");
+    const normalizedPath = p.startsWith("/") ? p : `/${p}`;
+    return `${base}${normalizedPath}`;
   },
   getCartItems() {
     return this.globalData.cartItems || [];

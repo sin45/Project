@@ -4,7 +4,7 @@
   <view class="header">
     <view class="store-info">
       <view class="store-chosen">
-        <text class="store-name">乳山市金长城花园店</text>
+        <text class="store-name">威海市幸福大街店</text>
         <text class="store-distance"> | 1.08千米 ></text>
         <text class="immediate-text">即刻取单</text>
       </view>
@@ -15,23 +15,6 @@
         </view>
         <button class="reserve-btn">预约</button>
       </view>
-    </view>
-    
-  </view>
-
-  <!-- 优惠提醒 -->
-  <view class="promotion-bar">
-    帮TA带满3杯及以上，每杯还立减3元哦
-  </view>
-
-  <!-- 搜索框 -->
-  <view class="search-bar">
-    <view class="search-input-container">
-    <icon type="search" size="16" color="#999"></icon>
-    <input class="search-input" placeholder="搜饮品" confirm-type="search"  bindinpute="onSearchInput"  bindconfirm="onSearch"/>
-  </view>
-    <view class="PinDan-btn">
-      <button class="help-btn">帮TA带</button>
     </view>
   </view>
 
@@ -61,7 +44,7 @@
   <scroll-view class="right-content" 
     scroll-y 
     scroll-with-animation 
-    scroll-into-view="{{'category-'+currentCategory}}"
+    scroll-top="{{rightScrollTop}}"
     bindscroll="onScroll">
   <block wx:for="{{categories}}" wx:key="id">
     <view id="category-{{item.id}}" class="category-section">

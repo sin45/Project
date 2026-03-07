@@ -193,9 +193,10 @@ Page({
     const _this = this
     const userInfo = wx.getStorageSync('userInfo');
     const openid = userInfo && (userInfo.wx_openid || userInfo.wxOpenid);
+    const app = getApp();
     //调用后台发起预支付
     wx.request({
-      url: `http://localhost:8080/api/wxPay/unifiedOrder`,
+      url: app.apiUrl('/api/wxPay/unifiedOrder'),
       method: 'POST',
       data: {
         openId: openid,
@@ -260,13 +261,12 @@ Page({
     };
     // 调用后端创建订单
     wx.request({
-      url: 'http://localhost:8080/api/orders',
+      url: app.apiUrl('/api/orders'),
       method: 'POST',
       data: orderData,
       header: { 'Content-Type': 'application/json' },
       success: (orderRes) => {
         // 清空购物车
-        const app = getApp();
         if (typeof app.clearCart === 'function') {
           app.clearCart();
         } else {

@@ -51,9 +51,9 @@ Page({
   fetchOrderDetails(orderId) {
     console.log('Fetching order details for orderId:', orderId);
     wx.showLoading({ title: '加载中...' });
-    
+    const app = getApp();
     wx.request({
-      url: `http://localhost:8080/api/orderdetail/${orderId}`,
+      url: app.apiUrl(`/api/orderdetail/${orderId}`),
       method: 'GET',
       success: (res) => {
         wx.hideLoading();

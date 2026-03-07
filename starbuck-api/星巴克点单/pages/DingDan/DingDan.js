@@ -5,31 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 顶部标签导航
-    tabs: [
-      { id: 'all', name: '全部' },
-      { id: 'quick', name: '啡快' },
-      { id: 'delivery', name: '专星送' },
-      { id: 'store', name: '门店订单' },
-      { id: 'other', name: '其他' }
-    ],
-    activeTab: 'all',
-
-    // 二级导航标签
-    subTabs: [
-      { id: 'gift', name: '星礼包/卡' },
-      { id: 'life', name: '咖啡生活馆' },
-      { id: 'lounge', name: '1971客厅' }
-    ],
-    activeSubTab: 'gift', // 默认选中
-    
     // 订单数据
     hasOrder: false,
     orderList: [],
-    allOrders: [],
-    
-    // 底部导航
-    currentTab: 'order'
+    allOrders: []
   },
   
   onShow() {
@@ -42,50 +21,13 @@ Page({
     }
     this.loadOrderData(userInfo.userId);
   },
-  
-  // 切换顶部标签
-  switchTab: function(e) {
-    const tabId = e.currentTarget.dataset.id;
-    this.setData({
-      activeTab: tabId,
-      // 切换到其他标签时默认选中第一个子标签
-      activeSubTab: tabId === 'other' ? 'gift' : ''
-    });
-    // 只需重新筛选，不必重新请求
-    this.filterOrderList(tabId);
-  },
-
-  // 切换二级标签
-  switchSubTab(e) {
-    const id = e.currentTarget.dataset.id;
-    this.setData({
-      activeSubTab: id
-    });
-    this.loadSubData(id);
-  },
-  
-  // 根据tab筛选订单
-  filterOrderList: function(tabId) {
-    const allOrders = this.data.allOrders || [];
-    let filtered = allOrders;
-    if (tabId === 'quick') {
-      filtered = allOrders.filter(order => order.orderType === 'QUICK');
-    } else if (tabId === 'delivery') {
-      filtered = allOrders.filter(order => order.orderType === 'DELIVERY');
-    } else if (tabId === 'store') {
-      filtered = allOrders.filter(order => order.orderType === 'STORE');
-    } // 其他tab显示全部
-    this.setData({
-      hasOrder: filtered.length > 0,
-      orderList: filtered
-    });
-  },
 
   // 加载订单数据
   loadOrderData: function(userId) {
     wx.showLoading({ title: '加载中...' });
+    const app = getApp();
     wx.request({
-      url: `http://localhost:8080/api/orders?userId=${userId}`,
+      url: app.apiUrl(`/api/orders?userId=${userId}`),
       method: 'GET',
       success: (res) => {
         if (res.statusCode === 200) {
@@ -104,10 +46,13 @@ Page({
           this.setData({
             allOrders: orderList
           });
-          this.filterOrderList(this.data.activeTab);
           console.log('格式化后订单数据:', orderList);
           console.log('订单列表长度:', orderList.length);
           if (orderList.length > 0) {
+            this.setData({
+              hasOrder: true,
+              orderList: orderList
+            });
             console.log('第一个订单的orderId:', orderList[0].orderId);
           }
         } else {
@@ -123,16 +68,6 @@ Page({
         wx.hideLoading();
       }
     });
-  },
-
-  // 加载二级标签数据
-  loadSubData(subId = 'gift') {
-    wx.showLoading({ title: '加载中' });
-    
-    setTimeout(() => {
-      this.setData({ hasOrder: false });
-      wx.hideLoading();
-    }, 500);
   },
   
   // 跳转到点单页面
@@ -192,12 +127,6 @@ Page({
     
     // 这里可以添加再来一单的逻辑
     // 比如跳转到点单页面并预填充商品
-  },
-
-  handleUserAuth() {
-    wx.getUserProfile({
-      desc: '用于完善会员资料',
-      success: (res) => { /* ... */ }
-    });
   }
+
 })

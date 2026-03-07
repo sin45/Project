@@ -22,8 +22,8 @@
           <view class="order-header">
             <view class="order-type-status">
               <text class="order-type">
-                <block wx:if="{{item.orderType === 'QUICK'}}">啡快</block>
-                <block wx:elif="{{item.orderType === 'DELIVERY'}}">专星送</block>
+                <block wx:if="{{item.orderType === 'store'}}">门店</block>
+                <block wx:elif="{{item.orderType === 'delivery'}}">外送</block>
                 <block wx:else>门店</block>
               </text>
               <text class="order-status">

@@ -65,8 +65,9 @@ Page({
   // 加载订单数据
   loadOrderData: function(userId) {
     wx.showLoading({ title: '加载中...' });
+    const app = getApp();
     wx.request({
-      url: `http://localhost:8080/api/orders?userId=${userId}`,
+      url: app.apiUrl(`/api/orders?userId=${userId}`),
       method: 'GET',
       success: (res) => {
         if (res.statusCode === 200) {

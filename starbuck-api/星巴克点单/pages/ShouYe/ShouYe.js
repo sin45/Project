@@ -31,8 +31,9 @@ Page({
     const userInfo = wx.getStorageSync('userInfo');
     const openId = userInfo.wxOpenid;
     console.log("我的openid：", openId);
+    const app = getApp();
     wx.request({
-      url: 'http://230791mi80.51mypc.cn/api/wxManage/getManageOpenId',
+      url: app.apiUrl('/api/wxManage/getManageOpenId'),
       method: 'POST',
       header: {
         'content-type': 'application/json'

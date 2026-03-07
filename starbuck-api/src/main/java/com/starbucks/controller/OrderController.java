@@ -75,6 +75,8 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders() {
+        System.out.println("设置好");
+
         return ResponseEntity.ok(orderService.getAllOrders());
     }
 

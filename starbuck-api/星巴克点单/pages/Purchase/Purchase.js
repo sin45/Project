@@ -5,304 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-      currentCategory: 1, // 当前选中的分类ID
-      scrollTop: 0,
-      categoryPositions: [], // 存储分类元素位置信息
-      isScrolling: false,     // 滚动状态标志
-      showCart: false, // 是否显示购物车弹窗
-      totalQuantity: 0, // 购物车总数量
-      totalPrice: 0, // 购物车总价
-      originalTotalPrice: 0, // 原价总价（用于显示折扣)
-      categories: [
-        {
-          id: 1,
-          name: "星级套餐",
-          count: 0,
-          foods: [
-            {
-              id: 101,
-              categoryId: 1,
-              name: "疯狂动物城系列",
-              description: "双层椰芒布丁",
-              price: 39.9,
-              originalPrice: 48,
-              discount: "8.3",
-              image: "/pages/images/蓝调爆珠冰摇 .jpg",
-              quantity: 0
-            },
-            {
-              id: 102,
-              categoryId: 1,
-              name: "果香蜜香双重配",
-              description: "shake一夏，星动全城",
-              price: 35,
-              image: "/pages/images/果香蜜香.jpg",
-              quantity: 0
-            }
-          ]
-        },
-        {
-          id: 2,
-          name: "星巴克必点",
-          count: 0,
-          foods: [
-            {
-              id: 201,
-              categoryId: 2,
-              name: "星星淘梨冰摇茶",
-              price: 26,
-              originalPrice: 32,
-              discount: "8.2",
-              image: "/pages/images/桃梨冰摇.jpg",
-              quantity: 0
-            },
-            {
-              id: 202,
-              categoryId: 2,
-              name: "全橙胡闹冰摇茶",
-              price: 26,
-              image: "/pages/images/胡闹冰摇茶.jpg",
-              quantity: 0
-            },
-            {
-              id: 203,
-              categoryId: 2,
-              name: "仲夏蓝调爆珠冰摇茶",
-              price: 30,
-              image: "/pages/images/蓝调爆珠冰摇 .jpg",
-              quantity: 0
-            },
-            {
-              id: 204,
-              categoryId: 2,
-              name: "焦糖玛奇朵",
-              price: 37,
-              image: "/pages/images/商品7.jpg",
-              quantity: 0
-            },
-            {
-              id: 205,
-              categoryId: 2,
-              name: "燕麦拿铁",
-              price: 33,
-              image: "/pages/images/商品1.jpg",
-              quantity: 0
-            },
-            {
-              id: 206,
-              categoryId: 2,
-              name: "五黑芝士贝果",
-              price: 19,
-              image: "/pages/images/五黑贝果.jpg",
-              quantity: 0
-            },
-            {
-              id: 207,
-              categoryId: 2,
-              name: "绵小熊蛋糕",
-              price: 36,
-              image: "/pages/images/小熊蛋糕.jpg",
-              quantity: 0
-            },
-          ]
-        },
-        {
-          id: 3,
-          name: "夏日心动推荐",
-          count: 0,
-          foods: [
-            {
-            id: 301,
-            categoryId: 3,
-            name: "冰摇红莓黑加仑茶",
-            price: 26,
-            image: "/pages/images/黑加仑冰摇.jpg",
-            quantity: 0
-          },
-          {
-            id: 302,
-            categoryId: 3,
-            name: "抹茶星冰乐",
-            price: 32,
-            image: "/pages/images/商品5.jpg",
-            quantity: 0
-          },
-          {
-            id: 303,
-            categoryId: 3,
-            name: "红茶拿铁",
-            price: 29,
-            image: "/pages/images/商品4.jpg",
-            quantity: 0
-          },
-          {
-            id: 304,
-            categoryId: 3,
-            name: "冰摇桃桃乌龙茶",
-            price: 32,
-            image: "/pages/images/黑加仑冰摇.jpg",
-            quantity: 0
-          },
-          {
-            id: 305,
-            categoryId: 4,
-            name: "摩卡可可碎片星冰乐",
-            price: 36,
-            image: "/pages/images/商品5.jpg",
-            quantity: 0
-          },
-      ],
-    },
-    {
-      id: 4,
-      name: "本店特供",
-      count: 0,
-       foods: [
-        {
-          id: 401,
-          categoryId: 4,
-          name: "金烘馥芮白",
-          description: "大杯/热/全脂牛奶",
-          price: 38,
-          image: "/pages/images/商品6.jpg",
-          quantity: 0
-        },
-        {
-          id: 402,
-          categoryId: 4,
-          name: "金烘焦糖玛奇朵",
-          description: "大杯/热/全脂牛奶",
-          price: 37,
-          image: "/pages/images/商品7.jpg",
-          quantity: 0
-        },
-       ]
-      },
-      {
-       id: 5,
-       name: "真味无糖",
-       count: 0,
-       foods: [
-         {id: 501,
-        categoryId: 5,
-        name: "草莓风味拿铁",
-        description: "不另外加糖/热/全脂牛奶",
-        price: 36,
-        image: "/pages/images/商品10.png",
-        quantity: 0
-        }
-       ]
-      },
-      {
-        id: 6,
-        name: "巧克力及其他饮品",
-        count: 0,
-        foods: [
-          {id: 601,
-            categoryId: 6,
-            name: "经典巧克力饮品",
-            description: "不另外加糖/热/全脂牛奶",
-            price: 33,
-            image: "/pages/images/商品8.jpg",
-            quantity: 0
-            }
-        ]
-       },
-       {
-        id: 7,
-        name: "经典咖啡",
-        count: 0,
-        foods: [
-          {id: 701,
-            categoryId: 7,
-            name: "蓝莓轻气泡拿铁",
-            description: "大杯/冰/全脂牛奶",
-            price: 39,
-            image: "/pages/images/蓝莓拿铁.jpg",
-            quantity: 0
-            },
-            {id: 702,
-              categoryId: 7,
-              name: "甜橙轻气泡拿铁",
-              description: "大杯/冰",
-              price: 39,
-              image: "/pages/images/甜橙拿铁.jpg",
-              quantity: 0
-              },
-              {id: 703,
-                categoryId: 7,
-                name: "白桃气泡美式",
-                description: "大杯/冰",
-                price: 39,
-                image: "/pages/images/黑加仑冰摇.jpg",
-                quantity: 0
-                },
-          ]
-        },
-       {
-        id: 8,
-        name: "/浓/小杯",
-        count: 0,
-        foods: [
-              {id: 801,
-                categoryId: 8,
-                name: "/浓/小杯拿铁",
-                description: "小杯/热/牛奶",
-                price: 29,
-                image: "/pages/images/商品3.jpg",
-                quantity: 0
-          }
-        ]
-       },
-       {
-        id: 9,
-        name: "星冰乐",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 10,
-        name: "冰摇茶",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 11,
-        name: "茶拿铁",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 12,
-        name: "低因推荐",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 13,
-        name: "巧克力及其他饮品",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 14,
-        name: "烘焙&三明治",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 15,
-        name: "蛋糕&星享小点",
-        count: 0,
-        foods: []
-       },
-       {
-        id: 16,
-        name: "星轻食&酸奶",
-        count: 0,
-        foods: []
-       },
-    ],
+    currentCategory: 1, // 当前选中的分类ID
+    scrollTop: 0,
+    rightScrollTop: 0, // 右侧列表滚动位置，用于点击左侧时联动
+    categoryPositions: [], // 存储分类元素位置信息
+    isScrolling: false,     // 滚动状态标志
+    showCart: false, // 是否显示购物车弹窗
+    totalQuantity: 0, // 购物车总数量
+    totalPrice: 0, // 购物车总价
+    originalTotalPrice: 0, // 原价总价（用于显示折扣)
+    categories: [],
     allFoods:[],
     cartItems: [],
     checkoutBar: {
@@ -319,8 +31,9 @@ Page({
   onLoad(options) {
     this.initCartData();
     // 拉取商品数据并组装分类
+    const app = getApp();
     wx.request({
-      url: 'http://localhost:8080/api/products',
+      url: app.apiUrl('/api/products'),
       method: 'GET',
       success: (res) => {
         if (res.statusCode === 200 && Array.isArray(res.data)) {
@@ -386,25 +99,22 @@ Page({
     return null;
   },
 
-  // 获取分类元素位置信息
+  // 获取右侧每个分类块在滚动容器中的相对位置（用于 scroll-top 和滚动联动）
   getCategoryPositions() {
-    const query = wx.createSelectorQuery();
-    const positions = [];
-    
-    this.data.categories.forEach((category) => {
-      query.select(`#category-${category.id}`).boundingClientRect();
-    });
-    
-    query.exec((res) => {
-      res.forEach((rect, index) => {
-        if (rect) {
-          positions.push({
-            id: this.data.categories[index].id,
-            top: rect.top,
-            bottom: rect.bottom
-          });
-        }
-      });
+    const query = wx.createSelectorQuery().in(this);
+    query.selectAll('.category-section').boundingClientRect();
+    query.exec(res => {
+      const rects = res[0] || [];
+      if (!rects.length) return;
+
+      // 以第一个分类块的顶部为基准，计算各块在滚动内容中的 scrollTop 偏移
+      const baseTop = rects[0].top;
+      const positions = rects.map((rect, index) => ({
+        id: this.data.categories[index].id,
+        top: Math.round(rect.top - baseTop),
+        bottom: Math.round(rect.bottom - baseTop)
+      }));
+
       this.setData({ categoryPositions: positions });
     });
   },
@@ -412,20 +122,24 @@ Page({
   // 切换分类
   switchCategory(e) {
     const categoryId = e.currentTarget.dataset.id;
+    const { categoryPositions, categories } = this.data;
+
+    // 用 scroll-top 联动右侧滚动（比 scroll-into-view 更可靠）
+    let targetScrollTop = 0;
+    const index = categories.findIndex(c => c.id == categoryId);
+    if (index >= 0 && categoryPositions[index]) {
+      targetScrollTop = categoryPositions[index].top;
+    }
+
     this.setData({
       currentCategory: categoryId,
+      rightScrollTop: targetScrollTop,
       isScrolling: true
     });
 
-    wx.pageScrollTo({
-      selector: `#category-${categoryId}`,
-      duration: 300,
-      complete: () => {
-        setTimeout(() => {
-          this.setData({ isScrolling: false });
-        }, 500);
-      }
-    });
+    setTimeout(() => {
+      this.setData({ isScrolling: false });
+    }, 400);
   },
 
   // 滚动事件处理
@@ -441,17 +155,17 @@ Page({
   // 更新当前分类
   updateActiveCategory(scrollTop) {
     const { categoryPositions, currentCategory } = this.data;
-    const screenHeight = wx.getSystemInfoSync().windowHeight;
-    const visibleCenter = scrollTop + (screenHeight - 100) / 2;
-    
+    if (!categoryPositions.length) return;
+
+    // 根据 scrollTop 找到当前可视区域最靠上的分类块
     let newCategory = currentCategory;
-    for (const position of categoryPositions) {
-      if (position.top <= visibleCenter && position.bottom >= visibleCenter) {
-        newCategory = position.id;
+    for (let i = categoryPositions.length - 1; i >= 0; i--) {
+      if (scrollTop >= categoryPositions[i].top - 10) {
+        newCategory = categoryPositions[i].id;
         break;
       }
     }
-    
+
     if (newCategory !== currentCategory) {
       this.setData({ currentCategory: newCategory });
     }
@@ -503,6 +217,14 @@ Page({
         wx.showToast({ title: '跳转失败，请重试', icon: 'none' });
       }
     });
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+    // 确保在页面渲染后获取分类位置（API 失败时使用默认数据也需要）
+    setTimeout(() => this.getCategoryPositions(), 100);
   },
 
   /**

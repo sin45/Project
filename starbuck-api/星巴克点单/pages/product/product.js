@@ -64,7 +64,7 @@ Page({
     }
     // 拉取商品详情
     wx.request({
-      url: `http://localhost:8080/api/products/${id}`,
+      url: app.apiUrl(`/api/products/${id}`),
       method: 'GET',
       success: (res) => {
         if (res.statusCode === 200 && res.data) {

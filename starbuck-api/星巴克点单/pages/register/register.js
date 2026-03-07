@@ -33,8 +33,9 @@ Page({
 
   // 校验用户名唯一性
   checkUsername(username) {
+    const app = getApp();
     wx.request({
-      url: `http://localhost:8080/api/users/check-username?username=${encodeURIComponent(username)}`,
+      url: app.apiUrl(`/api/users/check-username?username=${encodeURIComponent(username)}`),
       method: 'GET',
       success: (res) => {
         this.setData({ usernameAvailable: res.data.available });
@@ -47,8 +48,9 @@ Page({
 
   // 校验手机号唯一性
   checkPhone(phone) {
+    const app = getApp();
     wx.request({
-      url: `http://localhost:8080/api/users/check-phone?phone=${encodeURIComponent(phone)}`,
+      url: app.apiUrl(`/api/users/check-phone?phone=${encodeURIComponent(phone)}`),
       method: 'GET',
       success: (res) => {
         this.setData({ phoneAvailable: res.data.available });
@@ -75,8 +77,9 @@ Page({
       return;
     }
     this.setData({ loading: true });
+    const app = getApp();
     wx.request({
-      url: 'http://localhost:8080/api/users/register',
+      url: app.apiUrl('/api/users/register'),
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: { username, password, userPhone },
@@ -105,8 +108,9 @@ Page({
 
     this.setData({ loading: true });
 
+    const app = getApp();
     wx.request({
-      url: 'http://localhost:8080/api/users/login', // 改为你的后端接口
+      url: app.apiUrl('/api/users/login'),
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: { username, password },

@@ -34,8 +34,9 @@ Page({
 
     this.setData({ loading: true });
 
+    const app = getApp();
     wx.request({
-      url: 'http://localhost:8080/api/users/login', // 后端接口
+      url: app.apiUrl('/api/users/login'),
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: { username, password },
