@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    distance: 0,
     currentCategory: 1, // 当前选中的分类ID
     scrollTop: 0,
     rightScrollTop: 0, // 右侧列表滚动位置，用于点击左侧时联动
@@ -22,7 +23,10 @@ Page({
       price: '0.00',
       active: false,
       statusText: '未选择'
-    }
+    },
+    userLocation: null,       // 用户当前位置（纬度、经度）
+    distanceToTarget: null,   // 与目标坐标的直线距离（米）
+    orderType: 'pickup'       // 取餐方式：pickup 自提，delivery 外送
   },
 
    /**
@@ -30,6 +34,8 @@ Page({
    */
   onLoad(options) {
     this.initCartData();
+    // 获取用户当前位置与目标点的直线距离
+    this.getUserDistanceToTarget();
     // 拉取商品数据并组装分类
     const app = getApp();
     wx.request({
@@ -73,6 +79,47 @@ Page({
     });
   },
 
+  // 获取用户当前位置并计算与目标坐标 (121.69, 36.84) 的直线距离
+  getUserDistanceToTarget() {
+    const targetLatitude = 36.84;
+    const targetLongitude = 121.69;
+
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        const { latitude, longitude } = res;
+        const distance = this.calculateDistance(latitude, longitude, targetLatitude, targetLongitude);
+        this.setData({
+          distance: distance,
+          userLocation: { latitude, longitude },
+          distanceToTarget: distance
+        });
+        console.log('当前坐标：', latitude, longitude, '距离目标点(121.69,36.84)：', distance, '米');
+      },
+      fail: (err) => {
+        console.error('获取用户位置信息失败', err);
+      }
+    });
+  },
+
+  // 计算两组经纬度之间的直线距离（单位：米）
+  calculateDistance(lat1, lon1, lat2, lon2) {
+    const toRad = (degree) => degree * Math.PI / 180;
+    const R = 6371000; // 地球半径（米）
+
+    const φ1 = toRad(lat1);
+    const φ2 = toRad(lat2);
+    const Δφ = toRad(lat2 - lat1);
+    const Δλ = toRad(lon2 - lon1);
+
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return Math.round(R * c);
+  },
+
   // 初始化购物车数据
   initCartData() {
     const app = getApp();
@@ -80,6 +127,13 @@ Page({
     this.setData({ cartItems }, () => {
       this.calculateCartTotal();
     });
+  },
+
+  // 切换取餐方式（自提 / 外送）
+  onOrderTypeChange(e) {
+    const type = e.currentTarget.dataset.type;
+    if (!type || type === this.data.orderType) return;
+    this.setData({ orderType: type });
   },
 
   // 跳转到商品详情页

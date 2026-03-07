@@ -4,16 +4,26 @@
   <view class="header">
     <view class="store-info">
       <view class="store-chosen">
-        <text class="store-name">威海市幸福大街店</text>
-        <text class="store-distance"> | 1.08千米 ></text>
-        <text class="immediate-text">即刻取单</text>
+        <text class="store-name">金长城花园店</text>
+        <text class="store-distance"> | {{distance}}米 ></text>
+        <text class="immediate-text">欢迎下单</text>
       </view>
-      <view class="action-buttons">
-        <view class="reserve-hanger">
-          <view class="hanger-line"></view>
-          <view class="hanger-dot"></view>
+      <!-- 右上角 自提/外送 切换 -->
+      <view class="order-type-toggle">
+        <view 
+          class="order-type-item {{orderType === 'pickup' ? 'active' : ''}}" 
+          data-type="pickup" 
+          bindtap="onOrderTypeChange"
+        >
+          自提
         </view>
-        <button class="reserve-btn">预约</button>
+        <view 
+          class="order-type-item {{orderType === 'delivery' ? 'active' : ''}}" 
+          data-type="delivery" 
+          bindtap="onOrderTypeChange"
+        >
+          外送
+        </view>
       </view>
     </view>
   </view>
