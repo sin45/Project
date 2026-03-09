@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    address: '金长城花园店',
+    selectedAddress: null,
     distance: 0,
     currentCategory: 1, // 当前选中的分类ID
     scrollTop: 0,
@@ -33,6 +35,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    //如果外送来的 - 加载默认配送地址
+    if (options && options.orderType == 'delivery') {
+      this.setData({ orderType: 'delivery' });
+      this.getDefaultAddress();
+    }
+
     this.initCartData();
     // 获取用户当前位置与目标点的直线距离
     this.getUserDistanceToTarget();
@@ -134,6 +142,52 @@ Page({
     const type = e.currentTarget.dataset.type;
     if (!type || type === this.data.orderType) return;
     this.setData({ orderType: type });
+
+    if (type === 'delivery') {
+      this.getDefaultAddress();
+    }
+  },
+
+  /**
+   * 获取默认的配送地址
+   */
+  getDefaultAddress() {
+    const userInfo = wx.getStorageSync('userInfo');
+    const openId = userInfo ? userInfo.wxOpenid : '';
+    if (!openId) {
+      return;
+    }
+
+    const app = getApp();
+    wx.request({
+      url: app.apiUrl('/api/deliveryAddress/getDefaultAddress'),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: { openId },
+      success: (res) => {
+        if (res.data) {
+          this.setData({
+            selectedAddress: res.data
+          });
+        }else{
+          wx.navigateTo({
+            url: '/pages/addressManage/addressManage?ifPurchase=true'
+          });
+          wx.showToast({ title: '请添加配送地址', icon: 'none' });
+        }
+      }
+    });
+  },
+
+  /**
+   * 选择配送地址
+   */
+  changeAddress(){
+    wx.navigateTo({
+      url: '/pages/addressManage/addressManage?ifPurchase=true'
+    });
   },
 
   // 跳转到商品详情页
@@ -263,9 +317,26 @@ Page({
       wx.showToast({ title: '请先选择商品', icon: 'none' });
       return;
     }
+
+    const { totalPrice, address, selectedAddress, orderType } = this.data;
+
+    // 将必要信息通过查询参数传递到结算页
+    let url = `/pages/Checkout/Checkout?total=${totalPrice.toFixed(2)}`
+      + `&orderType=${orderType}`
+      + `&address=${encodeURIComponent(address || '')}`;
+
+    // selectedAddress 可能是对象，序列化后再传递
+    if (selectedAddress) {
+      try {
+        const encodedAddress = encodeURIComponent(JSON.stringify(selectedAddress));
+        url += `&selectedAddress=${encodedAddress}`;
+      } catch (e) {
+        console.warn('selectedAddress 序列化失败', e);
+      }
+    }
     
     wx.navigateTo({
-      url: `/pages/Checkout/Checkout?total=${this.data.totalPrice.toFixed(2)}`,
+      url: url,
       fail: (err) => {
         console.error('跳转失败:', err);
         wx.showToast({ title: '跳转失败，请重试', icon: 'none' });

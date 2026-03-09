@@ -4,8 +4,12 @@
   <view class="header">
     <view class="store-info">
       <view class="store-chosen">
-        <text class="store-name">金长城花园店</text>
-        <text class="store-distance"> | {{distance}}米 ></text>
+        <text wx:if="{{orderType === 'pickup'}}" class="store-name">
+          {{address}} | {{distance}}米 >
+        </text>
+        <text wx:if="{{orderType === 'delivery'}}" class="store-name" bindtap="changeAddress">
+          {{selectedAddress ? (selectedAddress.address1 + selectedAddress.address2) : address}} >
+        </text>
         <text class="immediate-text">欢迎下单</text>
       </view>
       <!-- 右上角 自提/外送 切换 -->

@@ -32,6 +32,26 @@
   margin-bottom: 15rpx;
 }
 
+.address-title{
+  display: flex;
+  align-items: center;
+}
+
+.address-name{
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.default-flag{
+  margin-left: 16rpx;
+  padding: 4rpx 16rpx;
+  font-size: 22rpx;
+  color: #006241;
+  border: 1rpx solid #006241;
+  border-radius: 24rpx;
+  background-color: #f5fffb;
+}
+
 .btn-wrap {
   padding: 48rpx 32rpx 0;
   margin-bottom: 60rpx;

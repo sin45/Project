@@ -2,8 +2,11 @@
 <view class="content">
   <view class="address-list">
     <view wx:for="{{addressList}}" wx:key="id" class="address-info">
-      <view class="info">
-        <text style="font-size: 36rpx;font-weight: bold;">{{item.address1}}</text>
+      <view class="info" bindtap="selectAddress" data-item="{{item}}">
+        <view class="address-title">
+          <text class="address-name">{{item.address1}}</text>
+          <text wx:if="{{item.default_flag == '1'}}" class="default-flag">默认地址</text>
+        </view>
         <text>{{item.address2}}</text>
         <text style="color: #999;">{{item.receiver}} {{item.phone}}</text>
       </view>

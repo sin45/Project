@@ -1,51 +1,52 @@
 Page({
   data: {
-    name: '',
+    id: '',
+    openid: '',
+    receiver: '',
     phone: '',
-    gender: 2, // 1 先生 2 女士
-    regionText: '',
-    detail: '',
-    isDefault: false,
-    id: null // 编辑时传入
+    address1: '',
+    address2: '',
+    default_flag: false,
+    if_change: false
   },
 
   onLoad(options) {
-    if (options.id) {
-      const list = wx.getStorageSync('addressList') || [];
-      const item = list.find((a) => String(a.id) === options.id);
-      if (item) {
-        this.setData({
-          id: item.id,
-          name: item.name || '',
-          phone: item.phone || '',
-          gender: item.gender || 2,
-          regionText: item.regionText || '',
-          detail: item.detail || '',
-          isDefault: !!item.isDefault
-        });
-      }
+    if (options.data) {
+      
+      let jsonString = options.data;
+      jsonString = decodeURIComponent(jsonString);
+      let jsonData = JSON.parse(jsonString);
+      this.setData(jsonData);
+      
     }
   },
 
   onNameInput(e) {
-    this.setData({ name: (e.detail.value || '').trim() });
+    this.setData({ 
+      receiver: (e.detail.value || '').trim(),
+      if_change: true
+    });
   },
 
   onPhoneInput(e) {
-    this.setData({ phone: (e.detail.value || '').replace(/\D/g, '') });
-  },
-
-  onGenderTap(e) {
-    const value = parseInt(e.currentTarget.dataset.value, 10);
-    this.setData({ gender: value });
+    this.setData({ 
+      phone: (e.detail.value || '').replace(/\D/g, ''),
+      if_change: true
+    });
   },
 
   onDetailInput(e) {
-    this.setData({ detail: (e.detail.value || '').trim() });
+    this.setData({
+       address2: (e.detail.value || '').trim(),
+       if_change: true
+    });
   },
 
   onDefaultChange(e) {
-    this.setData({ isDefault: e.detail.value });
+    this.setData({ 
+      default_flag: e.detail.value,
+      if_change: true 
+    });
   },
 
   onAuthPhone() {
@@ -58,8 +59,8 @@ Page({
   },
 
   onConfirm() {
-    const { name, phone, gender, regionText, detail, isDefault, id } = this.data;
-    if (!name) {
+    const { receiver, phone, address1, address2 } = this.data;
+    if (!receiver) {
       wx.showToast({ title: '请填写姓名', icon: 'none' });
       return;
     }
@@ -71,41 +72,60 @@ Page({
       wx.showToast({ title: '请填写正确手机号', icon: 'none' });
       return;
     }
-    if (!regionText) {
+    if (!address1) {
       wx.showToast({ title: '请选择收货地址地区', icon: 'none' });
       return;
     }
-    if (!detail) {
+    if (!address2) {
       wx.showToast({ title: '请填写详细地址', icon: 'none' });
       return;
     }
 
-    const list = wx.getStorageSync('addressList') || [];
-    const payload = {
-      id: id || Date.now(),
-      name,
-      phone,
-      gender,
-      regionText,
-      detail,
-      isDefault
-    };
-    const idx = list.findIndex((a) => String(a.id) === String(id));
-    if (idx >= 0) {
-      list[idx] = payload;
-    } else {
-      if (isDefault) {
-        list.forEach((a) => (a.isDefault = false));
-      }
-      list.push(payload);
-    }
-    if (isDefault) {
-      list.forEach((a) => (a.isDefault = a.id === payload.id));
-    }
-    wx.setStorageSync('addressList', list);
-    wx.showToast({ title: id ? '保存成功' : '添加成功', icon: 'success' });
-    setTimeout(() => wx.navigateBack(), 1500);
+    this.saveAddress();
   },
+
+  /**
+   * 保存地址
+   */
+  saveAddress() {
+
+    const app = getApp();
+    const userInfo = wx.getStorageSync('userInfo');
+    const openId = userInfo ? userInfo.wxOpenid : '';
+
+    const { id, receiver, phone, address1, address2, default_flag } = this.data;
+
+    wx.request({
+      url: app.apiUrl('/api/deliveryAddress/updateAddress'),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        id: id || null,
+        openId: openId,
+        receiver: receiver,
+        phone: phone,
+        address1: address1,
+        address2: address2,
+        default_flag: default_flag ? '1' : '0'
+      },
+      success: () => {
+        wx.showToast({
+          title: id ? '保存成功' : '添加成功',
+          icon: 'success'
+        });
+        setTimeout(() => wx.navigateBack(), 1500);
+      },
+      fail: () => {
+        wx.showToast({
+          title: '保存失败，请稍后重试',
+          icon: 'none'
+        });
+      }
+    });
+  },
+
   /**
    * 地图选择地址
    */

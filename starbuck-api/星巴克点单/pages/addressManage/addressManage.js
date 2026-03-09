@@ -5,29 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList: [
-      {
-        id: 1,
-        address1: "水岸人家",
-        address2: "13号楼301",
-        receiver: "王先生",
-        phone: "17823497362"
-      },
-      {
-        id: 2,
-        address1: "金长城花园",
-        address2: "1号楼301",
-        receiver: "李小姐",
-        phone: "15223497300"
-      }
-    ]
+    ifPurchase: false,
+    addressList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const ifPurchase =
+      options &&
+      (options.ifPurchase === true ||
+        options.ifPurchase === 'true' ||
+        options.ifPurchase === '1');
+    this.setData({ ifPurchase: !!ifPurchase });
+    this.loadAddressList();
   },
 
   /**
@@ -41,7 +33,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // 从地址详情页返回时，自动刷新地址列表
+    this.loadAddressList();
   },
 
   /**
@@ -79,9 +72,63 @@ Page({
 
   },
   /**
+   * 菜单页选择地址用
+   */
+  selectAddress(e) {
+    const item = e && e.currentTarget && e.currentTarget.dataset
+      ? e.currentTarget.dataset.item
+      : null;
+
+    if (this.data.ifPurchase && item) {
+      const pages = getCurrentPages();
+      const prevPage = pages[pages.length - 2];
+      if (prevPage && typeof prevPage.setData === 'function') {
+        prevPage.setData({
+          selectedAddress: item,
+          orderType: 'delivery',
+        });
+      }
+      wx.navigateBack();
+      return;
+    } else {
+
+      let query = JSON.stringify(item);
+      query = encodeURIComponent(query);
+      wx.navigateTo({ url: '/pages/addressDetail/addressDetail?data='+query });
+    }
+
+  },
+  /**
    * 跳转到添加地址页
    */
   addAddress() {
     wx.navigateTo({ url: '/pages/addressDetail/addressDetail' });
+  },
+
+  /**
+   * 加载地址列表
+   */
+  loadAddressList() {
+    const userInfo = wx.getStorageSync('userInfo');
+    const openId = userInfo ? userInfo.wxOpenid : '';
+    if (!openId) {
+      return;
+    }
+    const app = getApp();
+    wx.request({
+      url: app.apiUrl('/api/deliveryAddress/getDeliveryAddress'),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: { openId: openId },
+      success: (serverRes) => {
+        if (serverRes.data) {
+          this.setData({
+            addressList: serverRes.data
+          });
+        }
+      }
+    });
   }
 })

@@ -7,13 +7,49 @@ page {
   padding-bottom: 100rpx;
 }
 .container {
-  margin-left: 5%;
-  margin-top: 2%;
-  width:90%;
+  margin-top: 10rpx;
   padding: 0;  /* 移除内边距 */
-  padding-bottom: 10rpx;
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
+}
+
+/* 头部取餐方式与地址区域 */
+.checkout-header {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+}
+
+.header-tabs {
+  display: flex;
+}
+
+.header-tab {
+  font-size: 28rpx;
+  margin-right: 40rpx;
+  color: #666;
+}
+
+.header-tab.active {
+  color: #006241;
+  font-weight: bold;
+}
+
+.header-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.address-text {
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #333;
 }
 .store-selector {
   background-color: rgba(255, 255, 255, 0.781);
@@ -39,7 +75,7 @@ page {
   font-size: 28rpx;
 }
 
-.pickup-time {
+/* .pickup-time {
   width: 100%;
   display: flex;
   background-color: #fff;
@@ -67,7 +103,7 @@ page {
   font-size: 24rpx;
   color: #999;
   margin-top: 10rpx;
-}
+} */
 
 /* 订单区域样式 */
 .order-section {

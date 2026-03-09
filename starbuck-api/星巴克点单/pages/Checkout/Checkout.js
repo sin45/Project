@@ -13,18 +13,57 @@ Page({
     totalPrice: '0.00', // 订单总价
     selectedStore: null, // 选择的门店
     storeAddress: '', // 门店地址
-    currentTime: '' // 当前时间
+    currentTime: '', // 当前时间
+    orderType: 'pickup', // 取餐方式：pickup 自提，delivery 外送
+    address: '', // 自提门店地址
+    selectedAddress: null // 配送地址对象
   },
 
   onLoad(options) {
+    // 解析来自 Purchase 页面的参数
+    const {
+      total,
+      orderType,
+      address,
+      selectedAddress
+    } = options || {};
+
+    let decodedAddress = address ? decodeURIComponent(address) : '';
+    let parsedSelectedAddress = null;
+
+    if (selectedAddress) {
+      try {
+        const jsonStr = decodeURIComponent(selectedAddress);
+        parsedSelectedAddress = JSON.parse(jsonStr);
+      } catch (e) {
+        console.warn('selectedAddress 解析失败', e);
+      }
+    }
+
+    // 计算展示用地址
+    const finalOrderType = orderType || 'pickup';
+    let displayAddress = '';
+    if (finalOrderType === 'pickup') {
+      displayAddress = decodedAddress || '';
+    } else if (finalOrderType === 'delivery' && parsedSelectedAddress) {
+      displayAddress =
+        parsedSelectedAddress.fullAddress ||
+        parsedSelectedAddress.address ||
+        parsedSelectedAddress.detailAddress ||
+        '';
+    }
+
+    this.setData({
+      totalPrice: total || this.data.totalPrice,
+      orderType: finalOrderType,
+      address: decodedAddress,
+      selectedAddress: parsedSelectedAddress,
+      displayAddress
+    });
+
     this.initCartData();
     this.updateCurrentTime();
     this.initDefaultTime();
-    if (options.total) {
-      this.setData({
-        totalPrice: options.total
-      });
-    }
   },
 
   initCartData() {
@@ -131,60 +170,60 @@ Page({
     }, 1000);
   },
 
-  setPickupType(e) {
-    const type = e.currentTarget.dataset.type;
-    this.setData({
-      pickupType: type,
-      scheduledTime: type === 'immediate' ? '' : this.data.scheduledTime
-    });
-  },
+  // setPickupType(e) {
+  //   const type = e.currentTarget.dataset.type;
+  //   this.setData({
+  //     pickupType: type,
+  //     scheduledTime: type === 'immediate' ? '' : this.data.scheduledTime
+  //   });
+  // },
 
-  toggleTimePicker() {
-    this.setData({ showTimePicker: !this.data.showTimePicker });
-  },
+  // toggleTimePicker() {
+  //   this.setData({ showTimePicker: !this.data.showTimePicker });
+  // },
 
-  timeChange(e) {
-    const value = e.detail.value;
-    this.setData({
-      timeIndex: [
-        Math.min(value[0], this.data.dates.length - 1),
-        Math.min(value[1], this.data.hours.length - 1),
-        Math.min(value[2], this.data.minutes.length - 1)
-      ]
-    });
-  },
+  // timeChange(e) {
+  //   const value = e.detail.value;
+  //   this.setData({
+  //     timeIndex: [
+  //       Math.min(value[0], this.data.dates.length - 1),
+  //       Math.min(value[1], this.data.hours.length - 1),
+  //       Math.min(value[2], this.data.minutes.length - 1)
+  //     ]
+  //   });
+  // },
 
-  confirmTime() {
-    const { dates, hours, minutes, timeIndex } = this.data;
+  // confirmTime() {
+  //   const { dates, hours, minutes, timeIndex } = this.data;
     
-    const selectedDate = dates[timeIndex[0]]?.match(/今天|明天/)?.[0] || '今天';
-    const hourValue = hours[timeIndex[1]] ?? 0;
-    const minuteValue = minutes[timeIndex[2]] ?? 0;
+  //   const selectedDate = dates[timeIndex[0]]?.match(/今天|明天/)?.[0] || '今天';
+  //   const hourValue = hours[timeIndex[1]] ?? 0;
+  //   const minuteValue = minutes[timeIndex[2]] ?? 0;
     
-    const selectedHour = hourValue.toString().padStart(2, '0');
-    const selectedMinute = (minuteValue ).toString().padStart(2, '0');
+  //   const selectedHour = hourValue.toString().padStart(2, '0');
+  //   const selectedMinute = (minuteValue ).toString().padStart(2, '0');
     
-    const now = new Date();
-    const selectedTime = new Date();
+  //   const now = new Date();
+  //   const selectedTime = new Date();
     
-    if (selectedDate === '明天') {
-      selectedTime.setDate(selectedTime.getDate() + 1);
-    }
+  //   if (selectedDate === '明天') {
+  //     selectedTime.setDate(selectedTime.getDate() + 1);
+  //   }
     
-    selectedTime.setHours(parseInt(selectedHour));
-    selectedTime.setMinutes(parseInt(selectedMinute));
+  //   selectedTime.setHours(parseInt(selectedHour));
+  //   selectedTime.setMinutes(parseInt(selectedMinute));
     
-    if (selectedTime < now) {
-      wx.showToast({ title: '不能选择过去的时间', icon: 'none' });
-      return;
-    }
+  //   if (selectedTime < now) {
+  //     wx.showToast({ title: '不能选择过去的时间', icon: 'none' });
+  //     return;
+  //   }
 
-    this.setData({
-      scheduledTime: `${selectedDate} ${selectedHour}:${selectedMinute}`,
-      showTimePicker: false,
-      pickupType: 'schedule'
-    });
-  },
+  //   this.setData({
+  //     scheduledTime: `${selectedDate} ${selectedHour}:${selectedMinute}`,
+  //     showTimePicker: false,
+  //     pickupType: 'schedule'
+  //   });
+  // },
 
   /**
    * 支付

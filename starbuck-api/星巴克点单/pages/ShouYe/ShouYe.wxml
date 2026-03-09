@@ -7,7 +7,7 @@
   
 <view class="banner-split">
   <!-- 左侧：到店取 -->
-  <view class="banner-half" catchtap="handleBannerClick" data-type="到店取">
+  <view class="banner-half" catchtap="handleBannerClick" data-type="pickup">
     <view class="banner-tag">青梅酒回归</view>
     <view class="banner-main-title">到店取</view>
     <view class="banner-sub-title">在线点，到店取</view>
@@ -18,7 +18,7 @@
   </view>
   <view class="banner-divider"></view>
   <!-- 右侧：外送 -->
-  <view class="banner-half" catchtap="handleBannerClick" data-type="外送">
+  <view class="banner-half" catchtap="handleBannerClick" data-type="delivery">
     <view class="banner-tag">满50免运</view>
     <view class="banner-main-title">外送</view>
     <view class="banner-sub-title">备注送冰杯</view>

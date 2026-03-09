@@ -1,21 +1,17 @@
 <!-- 地址添加/编辑页 -->
 <view class="page-address">
   <view class="form-list">
-    <!-- 姓名 + 性别 -->
+    <!-- 姓名 -->
     <view class="row">
-      <text class="label">姓名</text>
+      <text class="label">收件人</text>
       <view class="row-right row-input-group">
         <input
           class="input"
           placeholder="请填写姓名"
           placeholder-class="placeholder"
-          value="{{name}}"
+          value="{{receiver}}"
           bindinput="onNameInput"
-        />
-        <view class="gender-group">
-          <text class="gender-item {{gender === 1 ? 'active' : ''}}" data-value="1" bindtap="onGenderTap">先生</text>
-          <text class="gender-item {{gender === 2 ? 'active' : ''}}" data-value="2" bindtap="onGenderTap">女士</text>
-        </view>
+        />        
       </view>
     </view>
 
@@ -44,7 +40,7 @@
     <view class="row">
       <text class="label">地区</text>
       <view class="row-right picker-inner" bindtap="selectAddress">
-        <text class="{{regionText ? 'value' : 'placeholder'}}">{{regionText || '请选择收货地址地区'}}</text>
+        <text class="{{address1 ? 'value' : 'placeholder'}}">{{address1 || '请选择收货地址地区'}}</text>
         <text class="arrow">∨</text>
       </view>
     </view>
@@ -58,7 +54,7 @@
         class="input flex-1"
         placeholder="请选择详细地址"
         placeholder-class="placeholder"
-        value="{{detail}}"
+        value="{{address2}}"
         bindinput="onDetailInput"
       />
     </view>
@@ -68,11 +64,11 @@
     <!-- 设为默认地址 -->
     <view class="row row-switch">
       <text class="label">设为默认地址</text>
-      <switch checked="{{isDefault}}" color="#333" bindchange="onDefaultChange" />
+      <switch checked="{{default_flag=='1'}}" color="#333" bindchange="onDefaultChange" />
     </view>
   </view>
 
   <view class="btn-wrap">
-    <button class="btn-confirm" bindtap="onConfirm">确认添加</button>
+    <button class="btn-confirm {{if_change ? 'active' : ''}}" bindtap="onConfirm">保存</button>
   </view>
 </view>

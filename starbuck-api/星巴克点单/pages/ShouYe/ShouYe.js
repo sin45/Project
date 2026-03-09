@@ -20,7 +20,7 @@ Page({
     console.log('点击了:', type);
     //传递参数 - 外送另外处理
     wx.navigateTo({
-      url: '/pages/Purchase/Purchase'
+      url: '/pages/Purchase/Purchase?orderType='+type
     });
   },
 

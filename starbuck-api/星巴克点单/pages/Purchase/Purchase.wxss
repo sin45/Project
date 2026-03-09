@@ -45,11 +45,7 @@ page {
   color: #333;
 }
 
-.store-distance {
-  letter-spacing: 1rpx;
-  font-size: 25rpx;
-  color: rgb(0, 0, 0);
-}
+
 .immediate-text{
   letter-spacing: 1rpx;
   font-size: 20rpx;

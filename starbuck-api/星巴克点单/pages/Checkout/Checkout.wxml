@@ -1,7 +1,19 @@
 <!-- pages/Checkout/Checkout.wxml -->
 <view class="container">
+  <!-- 头部：取餐方式 + 地址 -->
+  <view class="checkout-header">
+    <view class="header-tabs">
+      <text class="header-tab {{orderType === 'pickup' ? 'active' : ''}}">自提</text>
+      <text class="header-tab {{orderType === 'delivery' ? 'active' : ''}}">外送</text>
+    </view>
+    <view class="header-address">
+      <text class="address-text">{{orderType === 'pickup' ? address : selectedAddress}}</text>
+      <text>预计6分钟后可取餐</text>
+    </view>
+  </view>
+
   <!-- 取单时间选择 -->
-  <view class="pickup-time">
+  <!-- <view class="pickup-time">
     <view class="time-option {{pickupType === 'immediate' ? 'active' : ''}}" bindtap="setPickupType" data-type="immediate">
       <text>即刻取单</text>
       <text class="time-range">1-5分钟领取</text>
@@ -12,9 +24,9 @@
       <text class="time-range" wx:if="{{scheduledTime}}">{{scheduledTime}}</text>
       <text class="time-range" wx:else>选择时间</text>
     </view>
-  </view>
+  </view> -->
     
-  </view>
+</view>
 
  
 
@@ -108,7 +120,7 @@
   </view>
 
   <!-- 时间选择器弹窗 -->
-  <view class="time-picker-modal {{showTimePicker ? 'show' : ''}}">
+  <!-- <view class="time-picker-modal {{showTimePicker ? 'show' : ''}}">
   <view class="modal-mask" bindtap="toggleTimePicker" data-show="false"></view>
   <view class="modal-content">
     <view class="modal-header">
@@ -134,4 +146,4 @@
     </picker-view>
     <button class="confirm-btn" bindtap="confirmTime">开始下单</button>
   </view>
-</view>
+</view> -->

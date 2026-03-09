@@ -1,13 +1,10 @@
 package com.starbucks.controller;
 
-import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.starbucks.entity.UserInfo;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +17,7 @@ import java.util.List;
 public class WxManageController {
 
     @Autowired
-    EntityManager entityManager;
-
-    @Autowired
-    Session session;
+    private EntityManager entityManager;
 
     @PostMapping("/getManageOpenId")
     public Object getManageOpenId(@RequestBody JSONObject params) {
@@ -31,10 +25,11 @@ public class WxManageController {
         String openId = params.get("openId").toString();
 
         String sql = "SELECT id FROM system_user where openid=:openid";
+        Session session = entityManager.unwrap(Session.class);
         NativeQuery<Object[]> query = session.createNativeQuery(sql);
         query.setParameter("openid", openId);
         List<Object[]> resultList = query.list();
-        if(resultList!=null && resultList.size()>0){
+        if (resultList != null && resultList.size() > 0) {
             return true;
         }
 

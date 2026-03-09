@@ -58,25 +58,6 @@
   font-size: 30rpx;
 }
 
-/* 性别：先生/女士 */
-.gender-group {
-  display: flex;
-  align-items: center;
-  gap: 24rpx;
-  flex-shrink: 0;
-}
-
-.gender-item {
-  font-size: 28rpx;
-  color: #999;
-  padding: 8rpx 0;
-}
-
-.gender-item.active {
-  color: #333;
-  font-weight: 500;
-}
-
 /* 授权微信手机号链接 */
 .link-auth {
   font-size: 28rpx;
