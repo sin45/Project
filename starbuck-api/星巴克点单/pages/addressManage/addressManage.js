@@ -84,8 +84,7 @@ Page({
       const prevPage = pages[pages.length - 2];
       if (prevPage && typeof prevPage.setData === 'function') {
         prevPage.setData({
-          selectedAddress: item,
-          orderType: 'delivery',
+          selectedAddress: item
         });
       }
       wx.navigateBack();

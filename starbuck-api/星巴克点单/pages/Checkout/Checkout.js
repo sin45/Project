@@ -144,6 +144,15 @@ Page({
     });
   },
 
+   /**
+   * 选择配送地址
+   */
+   changeAddress(){
+    wx.navigateTo({
+      url: '/pages/addressManage/addressManage?ifPurchase=true'
+    });
+  },
+
   // 修改点1：重构减少数量方法
   decreaseQuantity(e) {
     console.log('触发减少数量', e);

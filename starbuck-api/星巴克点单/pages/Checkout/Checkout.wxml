@@ -7,7 +7,9 @@
       <text bindtap="changeToDelivery" class="header-tab {{orderType === 'delivery' ? 'active' : ''}}">外送</text>
     </view>
     <view class="header-address">
-      <text class="address-text">{{orderType === 'pickup' ? address : selectedAddress.address1}}</text>
+      <text wx:if="{{orderType == 'pickup'}}" class="address-text">{{address}}</text>
+      <text wx:if="{{orderType == 'delivery'}}" bindtap="changeAddress" class="address-text">{{selectedAddress.address1}}</text>
+      <!-- <text class="address-text">{{orderType === 'pickup' ? address : selectedAddress.address1}}</text> -->
       <text>预计6分钟后可出餐</text>
     </view>
   </view>

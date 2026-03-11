@@ -311,6 +311,103 @@ Page({
       'checkoutBar.statusText': active ? '去结算' : '未选择'
     });
   },
+  
+  // 显示 / 隐藏购物车弹窗
+  toggleCartPopup() {
+    if (this.data.checkoutBar.total <= 0) {
+      return;
+    }
+    const app = getApp();
+    const rawCartItems = app.getCartItems() || [];
+    const cartItems = rawCartItems.map(item => ({
+      ...item,
+      id: item.productId || item.id,
+      name: item.productName || item.name,
+      imageUrl: item.imageUrl || item.image,
+      quantity: item.quantity || 1,
+      price: Number(item.price || 0)
+    }));
+
+    this.setData({
+      showCart: !this.data.showCart,
+      cartItems
+    });
+  },
+
+  hideCartPopup() {
+    this.setData({ showCart: false });
+  },
+
+  // 清空购物车
+  clearCart() {
+    const app = getApp();
+    if (typeof app.clearCart === 'function') {
+      app.clearCart();
+    } else {
+      app.globalData.cartItems = [];
+    }
+    this.setData({
+      cartItems: [],
+      showCart: false
+    });
+    this.calculateCartTotal();
+  },
+
+  // 减少购物车中某个商品数量
+  decreaseCartItem(e) {
+    const app = getApp();
+    const id = e.currentTarget.dataset.id;
+    const cartItems = this.data.cartItems || [];
+    const item = cartItems.find(it => it.id === id);
+
+    if (!item) return;
+
+    const newQuantity = (item.quantity || 1) - 1;
+    app.updateCartItem(id, newQuantity);
+
+    const updatedItems = app.getCartItems() || [];
+    const formatted = updatedItems.map(it => ({
+      ...it,
+      id: it.productId || it.id,
+      name: it.productName || it.name,
+      imageUrl: it.imageUrl || it.image,
+      quantity: it.quantity || 1,
+      price: Number(it.price || 0)
+    }));
+
+    this.setData({
+      cartItems: formatted
+    });
+    this.calculateCartTotal();
+  },
+
+  // 增加购物车中某个商品数量
+  increaseCartItem(e) {
+    const app = getApp();
+    const id = e.currentTarget.dataset.id;
+    const cartItems = this.data.cartItems || [];
+    const item = cartItems.find(it => it.id === id);
+
+    if (!item) return;
+
+    const newQuantity = (item.quantity || 1) + 1;
+    app.updateCartItem(id, newQuantity);
+
+    const updatedItems = app.getCartItems() || [];
+    const formatted = updatedItems.map(it => ({
+      ...it,
+      id: it.productId || it.id,
+      name: it.productName || it.name,
+      imageUrl: it.imageUrl || it.image,
+      quantity: it.quantity || 1,
+      price: Number(it.price || 0)
+    }));
+
+    this.setData({
+      cartItems: formatted
+    });
+    this.calculateCartTotal();
+  },
   // 结算功能
   checkout() {
     if (!this.data.checkoutBar.active) {

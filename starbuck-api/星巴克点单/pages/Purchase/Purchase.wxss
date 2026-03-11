@@ -272,8 +272,8 @@ button::after {
 }
 
 .action-icon {
-  width: 50rpx;
-  height: 50rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 
 .quantity {
@@ -314,16 +314,39 @@ button::after {
 .coupon-info {
   display: flex;
   align-items: center;
-  margin-right: 30rpx;
   margin-left: 20rpx;
-  font-size: 20rpx;
   color: #999;
 }
 
 .coupon-icon {
-  width: 36rpx;
-  height: 36rpx;
+  width: 70rpx;
+  height: 70rpx;
   margin-right: 30rpx;
+}
+
+/* 购物车图标与数量角标 */
+.cart-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8rpx;
+  right: 10rpx;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background-color: #ff4d4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6rpx rgba(0, 0, 0, 0.15);
+}
+
+.cart-badge-text {
+  color: #ffffff;
+  font-size: 20rpx;
 }
 
 .price-info {
@@ -360,4 +383,103 @@ button::after {
 .checkout-bar.active .checkout-btn {
   background: #06ad56;
   color: #fff;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+}
+
+/* 购物车弹窗遮罩层 */
+.cart-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 95;
+}
+
+/* 购物车弹窗主体 */
+.cart-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-radius: 24rpx 24rpx 0 0;
+  max-height: 60vh;
+  padding: 24rpx 24rpx 34rpx;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.12);
+  z-index: 96;
+  padding-bottom: 110rpx;
+}
+
+.cart-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.cart-popup-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #111;
+}
+
+.cart-clear {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.cart-popup-list {
+  max-height: 50vh;
+}
+
+.cart-item {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.cart-item-image {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  font-size: 26rpx;
+  color: #222;
+  font-weight: 500;
+}
+
+.cart-item-sub {
+  margin-top: 6rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-item-spec {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.cart-item-bottom {
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item-price {
+  font-size: 26rpx;
+  color: #000;
+  font-weight: bold;
 }

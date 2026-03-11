@@ -83,7 +83,6 @@ Page({
         console.error('商品详情接口请求失败', err);
       }
     });
-    debugger
     console.log(this.data.product)
   },
 
@@ -167,7 +166,7 @@ Page({
       icon: 'success',
       duration: 2000
     });
-    this.goBack();
+    wx.navigateBack();
   },
 
   // 计算总价
@@ -205,13 +204,13 @@ Page({
   },
 
   // 返回上一页
-  goBack() {
-    setTimeout(() => {
-      wx.navigateTo({
-        url: '/pages/Purchase/Purchase',
-      });
-    }, 1000);
-  },
+  // goBack() {
+  //   setTimeout(() => {
+  //     wx.navigateTo({
+  //       url: '/pages/Purchase/Purchase',
+  //     });
+  //   }, 1000);
+  // },
 
   switchCategory(e) {
     const categoryId = e.currentTarget.dataset.id;

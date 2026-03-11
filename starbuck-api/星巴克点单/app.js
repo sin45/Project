@@ -63,12 +63,21 @@ App({
     return { totalQuantity, totalPrice };
   },
   updateCartItem(id, quantity) {
-    const cart = this.globalData.cartItems
-    cart.forEach(item => {
-      if(item.productId==id){
-        item.quantity = quantity
+    const cart = this.globalData.cartItems || [];
+    for (let i = 0; i < cart.length; i++) {
+      const item = cart[i];
+      if (item.productId == id || item.id == id) {
+        if (quantity <= 0) {
+          cart.splice(i, 1);
+        } else {
+          item.quantity = quantity;
+        }
+        break;
       }
-    });
-    this.globalData.cartItems = cart
+    }
+    this.globalData.cartItems = cart;
+  },
+  clearCart() {
+    this.globalData.cartItems = [];
   }
 });

@@ -92,12 +92,18 @@
   </block>
   </scroll-view>
 
-<!-- 底部结算栏 -->
+  </view>
+
+  <!-- 底部结算栏 -->
 <view class="checkout-bar {{checkoutBar.active ? 'active' : ''}}">
   <view class="checkout-info">
     <view class="coupon-info">
-      <image class="coupon-icon" src="/pages/images/coupon1.png"></image>
-      <text>暂无好礼券</text>
+      <view class="cart-icon-wrapper" bindtap="toggleCartPopup">
+        <image class="coupon-icon" src="/pages/images/购物车.jpg"></image>
+        <view class="cart-badge" wx:if="{{checkoutBar.total > 0}}">
+          <text class="cart-badge-text">{{checkoutBar.total}}</text>
+        </view>
+      </view>
     </view>
     <view class="price-info">
       <text class="currency">¥</text>
@@ -106,9 +112,51 @@
   </view>
   
   <view class="checkout-btn" bindtap="checkout">
-    {{checkoutBar.active ? '去结算(' + checkoutBar.total + ')' : '未选择'}}
+    {{checkoutBar.active ? '结算' : '未选择'}}
   </view>
 </view>
- </view>
-</view>
 
+<!-- 购物车弹窗 -->
+  <view wx:if="{{showCart}}">
+  <view class="cart-mask" bindtap="hideCartPopup"></view>
+  <view class="cart-popup">
+    <view class="cart-popup-header">
+      <text class="cart-popup-title">已选商品</text>
+      <text class="cart-clear" bindtap="clearCart">清空</text>
+    </view>
+    <scroll-view class="cart-popup-list" scroll-y>
+      <block wx:for="{{cartItems}}" wx:key="id">
+        <view class="cart-item">
+          <image class="cart-item-image" src="{{item.imageUrl ? item.imageUrl : item.image}}" mode="aspectFill"></image>
+          <view class="cart-item-info">
+            <view class="cart-item-title">{{item.productName ? item.productName : item.name}}</view>
+            <view class="cart-item-sub">
+              <text class="cart-item-spec">{{item.selectedSize}} / {{item.selectedTemp}} {{item.selectedFlavor}}</text>
+              <view class="quantity-control">
+                <image 
+                  class="action-icon" 
+                  src="/pages/images/黑色减号.png" 
+                  data-id="{{item.productId ? item.productId : item.id}}"
+                  bindtap="decreaseCartItem"
+                />
+                <text class="quantity">{{item.quantity || 1}}</text>
+                <image 
+                  class="action-icon" 
+                  src="/pages/images/黑色加号.png" 
+                  data-id="{{item.productId ? item.productId : item.id}}"
+                  bindtap="increaseCartItem"
+                />
+              </view>
+            </view>
+            <view class="cart-item-bottom">
+              <text class="cart-item-price">¥{{(item.price || 0)}}</text>
+              
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  </view>
+
+</view>
