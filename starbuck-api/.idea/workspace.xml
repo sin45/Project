@@ -6,43 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6765f1-cb44-488a-9d7e-a51a4c6f7590" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/WxManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/starbucks/controller/WxManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/starbucks/BalanceLogRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/starbucks/OrderServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/starbucks/ProductControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/starbucks/RedisServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/starbucks/controller/WxManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/starbucks/controller/WxManageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2026-02-12T11-40-53_569.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.BalanceLogRepositoryTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.OrderServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.ProductControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.starbucks.RedisServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.BalanceLogRepositoryTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.OrderServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.ProductControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.starbucks.RedisServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/starbucks/BalanceLogRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/starbucks/OrderServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/starbucks/ProductControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/starbucks/RedisServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Checkout/Checkout.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/Purchase/Purchase.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/ShouYe/ShouYe.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressDetail/addressDetail.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/addressManage/addressManage.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/星巴克点单/pages/product/product.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

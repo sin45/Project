@@ -50,6 +50,8 @@ page {
   font-size: 35rpx;
   font-weight: bold;
   color: #333;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
 }
 .store-selector {
   background-color: rgba(255, 255, 255, 0.781);
@@ -281,6 +283,15 @@ page {
   font-size: 22rpx;
 }
 
+.remark-info{
+  width: 100%;
+  height: 100rpx;
+}
+
+.remark{
+  height: 100rpx;
+  width: 100%;
+}
 
 
 /* 分隔线 */

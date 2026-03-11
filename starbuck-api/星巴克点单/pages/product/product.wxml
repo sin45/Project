@@ -35,13 +35,13 @@
 
 
     <!-- 杯型选择 -->
-    <view class="customization-row">
+    <view wx:if="{{product.category!='甜点'}}" class="customization-row">
       <text class="option-title">杯型</text>
       <view class="size-options">
         <view 
-          class="size-option {{selectedSize === 'medium' ? 'selected' : ''}}" 
+          class="size-option {{selectedSize === '中杯' ? 'selected' : ''}}" 
           bindtap="selectSize" 
-          data-size="medium"
+          data-size="中杯"
         >
           <view class="size-icon">
             <image src="/pages/images/中杯.jpg" mode="aspectFill"></image>
@@ -53,9 +53,9 @@
         </view>
         
         <view 
-          class="size-option {{selectedSize === 'large' ? 'selected' : ''}}" 
+          class="size-option {{selectedSize === '大杯' ? 'selected' : ''}}" 
           bindtap="selectSize" 
-          data-size="large"
+          data-size="大杯"
         >
           <view class="size-icon">
             <image src="/pages/images/大杯.jpg" mode="aspectFill"></image>
@@ -67,9 +67,9 @@
         </view>
         
         <view 
-          class="size-option {{selectedSize === 'xlarge' ? 'selected' : ''}}" 
+          class="size-option {{selectedSize === '超大杯' ? 'selected' : ''}}" 
           bindtap="selectSize" 
-          data-size="xlarge"
+          data-size="超大杯"
         >
           <view class="size-icon">
             <image src="/pages/images/超大杯.jpg" mode="aspectFill"></image>
@@ -83,52 +83,52 @@
     </view>
 
     <!-- 温度选择 -->
-    <view class="customization-row" style="margin-bottom: 0rpx;">
+    <view wx:if="{{!product.category!='甜点'}}" class="customization-row" style="margin-bottom: 0rpx;">
       <text class="option-title">温度</text>
       <view class="temperature-options">
         <view 
-          class="temperature-option {{selectedTemp === 'hot' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '热' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="hot"
+          data-temp="热"
         >
           热
         </view>
         <view 
-          class="temperature-option {{selectedTemp === 'warm' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '微热' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="warm"
+          data-temp="微热"
         >
           微热
         </view>
         <view 
-          class="temperature-option {{selectedTemp === 'none' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '去冰' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="none"
+          data-temp="去冰"
         >
           去冰
         </view>
       </view>
     </view>
-    <view class="customization-row">
+    <view wx:if="{{product.category!='甜点'}}" class="customization-row">
       <view class="temperature-options">
         <view 
-          class="temperature-option {{selectedTemp === 'less' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '少冰' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="less"
+          data-temp="少冰"
         >
-          <text class="{{selectedTemp === 'less' ? 'selected-text' : ''}}">少冰</text>
+        少冰
         </view>
         <view 
-          class="temperature-option {{selectedTemp === 'ice' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '标准冰' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="ice"
+          data-temp="标准冰"
         >
           标准冰
         </view>
         <view 
-          class="temperature-option {{selectedTemp === 'full' ? 'selected' : ''}}" 
+          class="temperature-option {{selectedTemp === '多冰' ? 'selected' : ''}}" 
           bindtap="selectTemperature" 
-          data-temp="full"
+          data-temp="多冰"
         >
           多冰
         </view>
@@ -136,11 +136,11 @@
     </view>
 
     <!-- 浓缩咖啡选择 -->
-    <view class="customization-row">
+    <view wx:if="{{product.category!='甜点'}}" class="customization-row">
       <text class="option-title">浓缩咖啡</text>
       <view class="espresso-options">
         <view 
-          class="espresso-option {{selectedEspresso === 'classic' ? 'selected' : ''}}" 
+          class="espresso-option {{selectedEspresso === '经典浓缩' ? 'selected' : ''}}" 
           bindtap="selectEspresso" 
           data-espresso="classic"
         >
@@ -150,7 +150,7 @@
     </view>
 
     <!-- 浓缩类型详情 -->
-    <view class="espresso-detail-section">
+    <view wx:if="{{product.category!='甜点'}}" class="espresso-detail-section">
       <!-- <view class="espresso-types">
         <view class="espresso-type">
           <image src="/pages/images/原萃浓缩.jpg"></image>
@@ -174,7 +174,7 @@
           </view>
         </view>
       </view> -->
-      <view class="espresso-quantity">
+      <view wx:if="{{product.category!='甜点'}}" class="espresso-quantity">
         <text>浓缩份数</text>
         <view class="quantity-control">
           <view class="quantity-btn decrease-btn" bindtap="decreaseEspressoQuantity" data-id="{{product.productId}}">
@@ -191,7 +191,7 @@
 
   <!-- 固定底部操作栏 -->
   <view class="fixed-bottom-bar">
-    <view class="reset-btn" bindtap="resetCustomization">重置客制化</view>
+    <view wx:if="{{product.category!='甜点'}}" class="reset-btn" bindtap="resetCustomization">重置客制化</view>
     <button class="add-to-cart-btn" bindtap="addToCart">添加至购物车￥{{totalPrice}}</button>
   </view>
 

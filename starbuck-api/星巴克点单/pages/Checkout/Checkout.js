@@ -16,7 +16,8 @@ Page({
     currentTime: '', // 当前时间
     orderType: 'pickup', // 取餐方式：pickup 自提，delivery 外送
     address: '', // 自提门店地址
-    selectedAddress: null // 配送地址对象
+    selectedAddress: '', // 配送地址对象
+    remark: ''//备注信息
   },
 
   onLoad(options) {
@@ -86,6 +87,60 @@ Page({
     this.setData({
       cartItems: formattedCartItems,
       totalPrice: cartTotal.totalPrice
+    });
+  },
+
+  //自提改外送
+  changeToDelivery() {
+    if(this.data.orderType=='pickup'){
+      this.setData({
+        orderType: 'delivery'
+      });
+    }
+    if(this.data.selectedAddress==null || this.data.selectedAddress==''){
+      this.getDefaultAddress();
+    }
+  },
+
+  //外送改自提
+  changeToPickup() {
+    if(this.data.orderType=='delivery'){
+      this.setData({
+        orderType: 'pickup'
+      });
+    }
+  },
+
+  /**
+   * 获取默认的配送地址
+   */
+  getDefaultAddress() {
+    const userInfo = wx.getStorageSync('userInfo');
+    const openId = userInfo ? userInfo.wxOpenid : '';
+    if (!openId) {
+      return;
+    }
+
+    const app = getApp();
+    wx.request({
+      url: app.apiUrl('/api/deliveryAddress/getDefaultAddress'),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: { openId },
+      success: (res) => {
+        if (res.data) {
+          this.setData({
+            selectedAddress: res.data
+          });
+        }else{
+          wx.navigateTo({
+            url: '/pages/addressManage/addressManage?ifPurchase=true'
+          });
+          wx.showToast({ title: '请添加配送地址', icon: 'none' });
+        }
+      }
     });
   },
 

@@ -3,12 +3,12 @@
   <!-- 头部：取餐方式 + 地址 -->
   <view class="checkout-header">
     <view class="header-tabs">
-      <text class="header-tab {{orderType === 'pickup' ? 'active' : ''}}">自提</text>
-      <text class="header-tab {{orderType === 'delivery' ? 'active' : ''}}">外送</text>
+      <text bindtap="changeToPickup" class="header-tab {{orderType === 'pickup' ? 'active' : ''}}">自提</text>
+      <text bindtap="changeToDelivery" class="header-tab {{orderType === 'delivery' ? 'active' : ''}}">外送</text>
     </view>
     <view class="header-address">
-      <text class="address-text">{{orderType === 'pickup' ? address : selectedAddress}}</text>
-      <text>预计6分钟后可取餐</text>
+      <text class="address-text">{{orderType === 'pickup' ? address : selectedAddress.address1}}</text>
+      <text>预计6分钟后可出餐</text>
     </view>
   </view>
 
@@ -89,16 +89,22 @@
  <!-- 优惠券信息 -->
  <view class="coupon-info">
       <image class="icon" src="/pages/images/coupon1.png"></image>
-      <text>星享好礼券</text>
+      <text>优惠券</text>
       <text class="status1">暂无可用</text>
     
     </view>
     
-    <!-- 星星信息 -->
+    <!-- 积分信息 -->
     <view class="stars-info">
       <image class="icon" src="/pages/images/黄色星星.jpg"></image>
-      <text>好礼星星</text>
+      <text>积分</text>
       <text class="status2">暂无可用</text>
+    </view>
+    
+
+    <view class="remark-info">
+      <text>备注:</text>
+      <textarea class="remark" value="{{remark}}"/>
     </view>
     
     <!-- 分隔线 -->

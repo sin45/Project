@@ -10,10 +10,9 @@ Page({
     totalPrice: '0.00',
     quantity: 1,
     espressoQuantity: 1,
-    selectedSize: 'large',
-    selectedTemp: 'ice',
-    selectedEspresso: 'classic',
-    selectedFlavor: 'berry',
+    selectedSize: '大杯',
+    selectedTemp: '标准冰',
+    selectedEspresso: '经典浓缩',
     showStickyHeader: false,
     scrollThreshold: 400,
     statusBarHeight: 0,
@@ -22,21 +21,21 @@ Page({
     // 杯型选项数据
     sizeOptions: [
       {
-        id: 'medium',
+        id: '中杯',
         name: '中杯',
         volume: '355ml',
         icon: '/pages/images/中杯.jpg',
         selectedIcon: '/pages/images/选中中杯.jpg'
       },
       {
-        id: 'large',
+        id: '大杯',
         name: '大杯',
         volume: '473ml',
         icon: '/pages/images/大杯.jpg',
         selectedIcon: '/pages/images/选中大杯.jpg'
       },
       {
-        id: 'xlarge',
+        id: '超大杯',
         name: '超大杯',
         volume: '592ml',
         icon: '/pages/images/超大杯.jpg',
@@ -84,6 +83,8 @@ Page({
         console.error('商品详情接口请求失败', err);
       }
     });
+    debugger
+    console.log(this.data.product)
   },
 
   onPageScroll(e) {
@@ -157,7 +158,6 @@ Page({
       selectedSize: this.data.selectedSize,
       selectedTemp: this.data.selectedTemp,
       selectedEspresso: this.data.selectedEspresso,
-      selectedFlavor: this.data.selectedFlavor,
       totalPrice: this.data.totalPrice,
       price: this.data.product.price
     };
@@ -183,10 +183,9 @@ Page({
   resetCustomization() {
     this.setData({
       quantity: 1,
-      selectedSize: 'large',
-      selectedTemp: 'ice',
-      selectedEspresso: 'classic',
-      selectedFlavor: 'berry'
+      selectedSize: '大杯',
+      selectedTemp: '标准冰',
+      selectedEspresso: '经典浓缩'
     }, () => {
       this.calculateTotalPrice();
     });
@@ -203,10 +202,6 @@ Page({
 
   selectEspresso(e) {
     this.setData({ selectedEspresso: e.currentTarget.dataset.espresso });
-  },
-
-  selectFlavor(e) {
-    this.setData({ selectedFlavor: e.currentTarget.dataset.flavor });
   },
 
   // 返回上一页

@@ -61,5 +61,14 @@ App({
       totalPrice += (item.price || 0) * (item.quantity || 1);
     });
     return { totalQuantity, totalPrice };
+  },
+  updateCartItem(id, quantity) {
+    const cart = this.globalData.cartItems
+    cart.forEach(item => {
+      if(item.productId==id){
+        item.quantity = quantity
+      }
+    });
+    this.globalData.cartItems = cart
   }
 });
